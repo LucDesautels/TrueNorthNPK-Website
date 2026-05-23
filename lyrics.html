@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lyrics - True North NPK</title>
+  <meta name="description" content="Browse the lyrics for every True North NPK song.">
+  <link rel="icon" href="assets/img/badge.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/controls.js"></script>
+</head>
+<body data-page="lyrics">
+
+  <header id="site-header"></header>
+
+  <main>
+    <div class="container lyrics-layout">
+      <h1>Lyrics</h1>
+      <p class="lead">
+        [K] Browse the song tree below - click any song to open its full lyrics.
+        Prefer to read the whole book at once?
+      </p>
+      <a class="btn btn-ghost pdf-link" href="assets/docs/lyric-book.pdf" target="_blank" rel="noopener">
+        Open the full PDF lyric book
+      </a>
+
+      <div class="titanium-bar thin divider-ti" style="margin:10px 0 30px"></div>
+
+      <!-- file tree rendered by js/lyrics.js -->
+      <div class="tree" id="tree-root"></div>
+    </div>
+  </main>
+
+  <!-- Lyrics modal -->
+  <div class="modal-overlay" id="lyrics-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <h3 id="modal-title">Song<span class="m-sub" id="modal-sub"></span></h3>
+        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-cols">
+        <div class="modal-col modal-col-lyrics">
+          <p class="modal-col-label">Lyrics</p>
+          <div class="modal-scroll modal-lyrics" id="modal-lyrics"></div>
+        </div>
+        <div class="modal-col modal-col-meaning">
+          <p class="modal-col-label">Significance &amp; Meaning</p>
+          <div class="modal-scroll modal-meaning" id="modal-meaning"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/lyrics.js"></script>
+</body>
+</html>

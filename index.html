@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True North NPK</title>
+  <meta name="description" content="True North NPK - a three-piece band. Debut album Titanium Attitude out now.">
+  <link rel="icon" href="assets/img/badge.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/controls.js"></script>
+</head>
+<body data-page="home">
+
+  <header id="site-header"></header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-tagline">Noel &middot; Paul &middot; Kevin</p>
+        <h1>True North <span class="npk">NPK</span></h1>
+        <p class="hero-desc">
+          [A] True North NPK is a three-piece band of friends - Noel, Paul and Kevin -
+          writing honest songs about resilience, gratitude and the long way home.
+          Their debut album, <em>Titanium Attitude</em>, is out now.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="music.html">Listen to the album</a>
+          <a class="btn btn-ghost" href="about.html">Learn more about the band</a>
+        </div>
+        <div class="hero-ti"><div class="titanium-bar"></div></div>
+      </div>
+    </section>
+
+    <!-- ALBUM PREVIEW -->
+    <section class="section album-preview">
+      <div class="container">
+        <div class="album-preview-grid" id="album-preview"><!-- filled by script --></div>
+
+        <!-- placeholder for a future second album -->
+        <div class="coming-soon" id="coming-soon"><!-- filled by script --></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    /* Render the debut album preview + the "coming soon" placeholder
+       straight from js/data.js so the band edits content in one place. */
+    (function () {
+      var first = ALBUMS[0];
+      document.getElementById("album-preview").innerHTML =
+        '<div class="album-cover-frame">' +
+          '<img src="' + first.cover + '" alt="' + first.title + ' album cover">' +
+        '</div>' +
+        '<div class="album-preview-info">' +
+          '<p class="eyebrow">Debut Album</p>' +
+          '<h3>' + first.title + '</h3>' +
+          '<p class="album-year">' + first.year + ' &middot; ' + first.songs.length + ' songs</p>' +
+          '<p>' + first.description + '</p>' +
+          '<a class="btn btn-titanium" href="music.html">Open the album</a>' +
+        '</div>';
+
+      var second = ALBUMS[1];
+      if (second) {
+        document.getElementById("coming-soon").innerHTML =
+          '<div class="cs-art">Album<br>Art</div>' +
+          '<div>' +
+            '<h3>' + second.title + '</h3>' +
+            '<p>' + second.description + '</p>' +
+          '</div>';
+      }
+    })();
+  </script>
+</body>
+</html>

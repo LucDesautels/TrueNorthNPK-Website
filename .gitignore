@@ -1,0 +1,9 @@
+# Raw source materials - kept locally, not in the repo
+Uploaded Songs/
+Uploaded Media from the band/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music - True North NPK</title>
+  <meta name="description" content="Listen to True North NPK's albums, including the debut Titanium Attitude.">
+  <link rel="icon" href="assets/img/badge.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/controls.js"></script>
+</head>
+<body data-page="music">
+
+  <header id="site-header"></header>
+
+  <main>
+    <!-- Each album is rendered here as a full-height panel by js/player.js -->
+    <div id="albums-root"></div>
+  </main>
+
+  <!-- Fixed player bar -->
+  <div class="player-bar" id="player-bar" aria-label="Audio player">
+    <div class="pb-now">
+      <div class="pb-title" id="pb-title">Select a song</div>
+      <div class="pb-album" id="pb-album"></div>
+    </div>
+    <div class="pb-center">
+      <div class="pb-controls">
+        <button class="pb-btn prev" id="pb-prev" aria-label="Previous song"></button>
+        <button class="pb-btn skip" id="pb-back10" aria-label="Back 10 seconds"></button>
+        <button class="pb-btn pb-play" id="pb-play" aria-label="Play"></button>
+        <button class="pb-btn skip" id="pb-fwd10" aria-label="Forward 10 seconds"></button>
+        <button class="pb-btn next" id="pb-next" aria-label="Next song"></button>
+      </div>
+      <div class="pb-progress">
+        <span class="pb-time" id="pb-cur">0:00</span>
+        <input type="range" class="slider" id="pb-seek" min="0" max="1000" value="0" aria-label="Seek">
+        <span class="pb-time" id="pb-dur">0:00</span>
+      </div>
+    </div>
+    <div class="pb-right">
+      <span class="pb-vol-icon" id="pb-vol-icon" aria-hidden="true"></span>
+      <input type="range" class="slider pb-vol" id="pb-vol" min="0" max="100" value="80" aria-label="Volume">
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/player.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &amp; Contact - True North NPK</title>
+  <meta name="description" content="Meet True North NPK - Noel, Paul and Kevin - and get in touch.">
+  <link rel="icon" href="assets/img/badge.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/controls.js"></script>
+</head>
+<body data-page="about">
+
+  <header id="site-header"></header>
+
+  <main>
+    <!-- ABOUT -->
+    <section class="section about-hero">
+      <div class="container">
+        <h1>About the Band</h1>
+        <div class="band-block">
+          <div class="band-photo">
+            <img src="assets/img/band-placeholder.jpg" alt="True North NPK band photo placeholder">
+            <p class="ph-caption">Placeholder - a photo of Noel, Paul &amp; Kevin together will go here.</p>
+          </div>
+          <div class="band-text">
+            <p>
+              [G] True North NPK is a three-piece band - Noel Desautels, Paul Cusenza and
+              Kevin Zarnett. The "NPK" is simply the three of them: friends who write
+              and record songs together.
+            </p>
+            <p>
+              [H] Their music leans on folk and rock roots, with honest lyrics about
+              resilience, gratitude, family and finding the sun-lit route through
+              hard times. Their debut album, <em>Titanium Attitude</em>, was produced
+              by the band, with artwork in the style of West Coast art.
+            </p>
+          </div>
+        </div>
+        <div class="titanium-bar thin divider-ti" style="max-width:240px;margin-top:18px"></div>
+      </div>
+    </section>
+
+    <!-- MEMBERS -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <h2>The Members</h2>
+        <p class="lead">[I] Hover over a card to see a second photo of each member.</p>
+        <div class="members-grid" id="members-grid"><!-- filled by script --></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="lead">[J] Booking, press or just saying hello - reach out below.</p>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <!-- NOTE: replace the placeholder email with the band's real address -->
+            <div class="contact-detail">
+              <p class="cd-label">Email</p>
+              <p class="cd-value"><a href="mailto:hello@truenorthnpk.com">hello@truenorthnpk.com</a></p>
+            </div>
+            <div class="contact-detail">
+              <p class="cd-label">Listen</p>
+              <p class="cd-value"><a href="https://truenorthnpk.hearnow.com/" target="_blank" rel="noopener">truenorthnpk.hearnow.com</a></p>
+            </div>
+            <div class="contact-members">
+              <h4>Band Members</h4>
+              <ul>
+                <li>Noel Desautels - [contact placeholder]</li>
+                <li>Paul Cusenza - [contact placeholder]</li>
+                <li>Kevin Zarnett - [contact placeholder]</li>
+              </ul>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-name">Name</label>
+                <input type="text" id="cf-name" name="name" required>
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Your Email</label>
+                <input type="email" id="cf-email" name="email" required>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject">
+            </div>
+            <div class="form-field">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-status" id="cf-status" role="status"></p>
+            <p class="form-note">
+              This form opens your email app with the message ready to send.
+              It can later be connected to a form service for direct submission.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/shared.js"></script>
+  <script>
+    /* render member cards from js/data.js */
+    (function () {
+      document.getElementById("members-grid").innerHTML = MEMBERS.map(function (m) {
+        return '' +
+          '<article class="member-card">' +
+            '<div class="member-photo">' +
+              '<img class="photo-main" src="' + m.photo + '" alt="' + m.name + '">' +
+              '<img class="photo-hover" src="' + m.photoHover + '" alt="" aria-hidden="true">' +
+            '</div>' +
+            '<div class="member-info">' +
+              '<h3>' + m.name + '</h3>' +
+              '<p class="member-role">' + m.role + '</p>' +
+              '<p>' + m.bio + '</p>' +
+            '</div>' +
+          '</article>';
+      }).join("");
+    })();
+
+    /* contact form -> opens the user's email client (no backend needed) */
+    (function () {
+      var form = document.getElementById("contact-form");
+      var status = document.getElementById("cf-status");
+      var TO = "hello@truenorthnpk.com"; /* replace with the band's real email */
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var msg = form.message.value.trim();
+        if (!name || !email || !msg) {
+          status.style.color = "#e8923a";
+          status.textContent = "Please fill in your name, email and message.";
+          return;
+        }
+        var subject = form.subject.value.trim() || ("Message from " + name);
+        var body = "From: " + name + " (" + email + ")\n\n" + msg;
+        window.location.href = "mailto:" + TO +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+        status.style.color = "";
+        status.textContent = "Opening your email app…";
+      });
+    })();
+  </script>
+</body>
+</html>
