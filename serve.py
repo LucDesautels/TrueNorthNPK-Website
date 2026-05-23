@@ -19,6 +19,7 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
     """SimpleHTTPRequestHandler that honours the Range header."""
 
     def send_head(self):
+        self._range = None
         path = self.translate_path(self.path)
         if os.path.isdir(path):
             return super().send_head()
@@ -64,10 +65,11 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
         return f
 
     def copyfile(self, source, outputfile):
-        if self._range is None:
+        rng = getattr(self, "_range", None)
+        if rng is None:
             super().copyfile(source, outputfile)
             return
-        start, end = self._range
+        start, end = rng
         remaining = end - start + 1
         while remaining > 0:
             chunk = source.read(min(64 * 1024, remaining))
