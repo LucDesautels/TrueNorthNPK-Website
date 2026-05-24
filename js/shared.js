@@ -82,7 +82,7 @@ function buildFooter() {
       <div class="footer-col footer-brand">
         <img src="assets/img/badge.png" alt="" class="footer-badge">
         <p class="footer-name">True North NPK</p>
-        <p class="footer-tagline">[L] Titanium Attitude - out now.</p>
+        <p class="footer-tagline" data-content="footer.tagline"></p>
       </div>
       <div class="footer-col">
         <h4>Listen</h4>
@@ -105,7 +105,54 @@ function buildFooter() {
     </div>`;
 }
 
+/* Walks the page and fills anything tagged with a data-content
+   attribute from the matching path inside js/content.js (CONTENT).
+   Also handles the special-case contact wiring: email, listen URL
+   and the band-member contact list. */
+function applyContent() {
+  if (typeof CONTENT === "undefined") return;
+
+  document.querySelectorAll("[data-content]").forEach(function (el) {
+    var path = el.getAttribute("data-content");
+    var val = path.split(".").reduce(function (o, k) {
+      return (o == null) ? null : o[k];
+    }, CONTENT);
+    if (val != null) el.textContent = val;
+  });
+
+  var email = CONTENT.contact && CONTENT.contact.email;
+  if (email) {
+    document.querySelectorAll("[data-content-email]").forEach(function (a) {
+      a.href = "mailto:" + email;
+      a.textContent = email;
+    });
+  }
+
+  var listenUrl = CONTENT.contact && CONTENT.contact.listenUrl;
+  if (listenUrl) {
+    document.querySelectorAll("[data-content-listen]").forEach(function (a) {
+      a.href = listenUrl;
+      a.textContent = listenUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    });
+  }
+
+  var memberList = document.querySelector("[data-content-member-list]");
+  if (memberList && Array.isArray(CONTENT.members)) {
+    memberList.innerHTML = CONTENT.members.map(function (m) {
+      return "<li>" + escapeHtml(m.name || "") + " - " +
+                      escapeHtml(m.contact || "[contact placeholder]") + "</li>";
+    }).join("");
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("site-header")) buildHeader();
   if (document.getElementById("site-footer")) buildFooter();
+  applyContent();
 });

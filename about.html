@@ -24,17 +24,8 @@
             <p class="ph-caption">Placeholder - a photo of Noel, Paul &amp; Kevin together will go here.</p>
           </div>
           <div class="band-text">
-            <p>
-              [G] True North NPK is a three-piece band - Noel Desautels, Paul Cusenza and
-              Kevin Zarnett. The "NPK" is simply the three of them: friends who write
-              and record songs together.
-            </p>
-            <p>
-              [H] Their music leans on folk and rock roots, with honest lyrics about
-              resilience, gratitude, family and finding the sun-lit route through
-              hard times. Their debut album, <em>Titanium Attitude</em>, was produced
-              by the band, with artwork in the style of West Coast art.
-            </p>
+            <p data-content="about.paragraph1"></p>
+            <p data-content="about.paragraph2"></p>
           </div>
         </div>
         <div class="titanium-bar thin divider-ti" style="max-width:240px;margin-top:18px"></div>
@@ -45,7 +36,7 @@
     <section class="section" style="padding-top:0">
       <div class="container">
         <h2>The Members</h2>
-        <p class="lead">[I] Hover over a card to see a second photo of each member.</p>
+        <p class="lead" data-content="about.membersSectionLead"></p>
         <div class="members-grid" id="members-grid"><!-- filled by script --></div>
       </div>
     </section>
@@ -54,25 +45,21 @@
     <section class="section contact-section" id="contact">
       <div class="container">
         <h2>Contact</h2>
-        <p class="lead">[J] Booking, press or just saying hello - reach out below.</p>
+        <p class="lead" data-content="about.contactLead"></p>
         <div class="contact-grid">
           <div class="contact-info">
-            <!-- NOTE: replace the placeholder email with the band's real address -->
+            <!-- email, listen URL, member names + contacts all come from js/content.js -->
             <div class="contact-detail">
               <p class="cd-label">Email</p>
-              <p class="cd-value"><a href="mailto:hello@truenorthnpk.com">hello@truenorthnpk.com</a></p>
+              <p class="cd-value"><a href="mailto:" data-content-email></a></p>
             </div>
             <div class="contact-detail">
               <p class="cd-label">Listen</p>
-              <p class="cd-value"><a href="https://truenorthnpk.hearnow.com/" target="_blank" rel="noopener">truenorthnpk.hearnow.com</a></p>
+              <p class="cd-value"><a href="#" data-content-listen target="_blank" rel="noopener"></a></p>
             </div>
             <div class="contact-members">
               <h4>Band Members</h4>
-              <ul>
-                <li>Noel Desautels - [contact placeholder]</li>
-                <li>Paul Cusenza - [contact placeholder]</li>
-                <li>Kevin Zarnett - [contact placeholder]</li>
-              </ul>
+              <ul data-content-member-list></ul>
             </div>
           </div>
 
@@ -109,6 +96,7 @@
 
   <footer id="site-footer"></footer>
 
+  <script src="js/content.js"></script>
   <script src="js/data.js"></script>
   <script src="js/shared.js"></script>
   <script>
@@ -134,7 +122,8 @@
     (function () {
       var form = document.getElementById("contact-form");
       var status = document.getElementById("cf-status");
-      var TO = "hello@truenorthnpk.com"; /* replace with the band's real email */
+      var TO = (window.CONTENT && CONTENT.contact && CONTENT.contact.email)
+               || "hello@truenorthnpk.com";
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var name = form.name.value.trim();

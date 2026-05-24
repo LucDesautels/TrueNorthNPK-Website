@@ -22,30 +22,24 @@ const STREAMING = [
 ];
 
 /* ---- Band members ----
-   Each member has two photos; the second shows on hover.          */
-const MEMBERS = [
-  {
-    name: "Noel Desautels",
-    role: "Vocals, Banjo & Guitar",
-    photo: "assets/img/noel-1.jpg",
-    photoHover: "assets/img/noel-2.jpg",
-    bio: "[D] Noel brings the strings to True North NPK - banjo, guitar and vocals woven through the record."
-  },
-  {
-    name: "Paul Cusenza",
-    role: "Vocals & Artwork Design",
-    photo: "assets/img/paul-1.jpg",
-    photoHover: "assets/img/paul-2.jpg",
-    bio: "[E] Paul lends his voice to the band and designed the Titanium Attitude artwork."
-  },
-  {
-    name: "Kevin Zarnett",
-    role: "Vocals & Instrumentation",
-    photo: "assets/img/kevin-2.jpg",
-    photoHover: "assets/img/kevin-1.jpg",
-    bio: "[F] Kevin handles vocals and instrumentation, and recorded and mixed the album."
-  }
+   Names / roles / bios / contacts live in js/content.js. Photos are
+   here because they are tied to specific image files in assets/img/. */
+const MEMBER_PHOTOS = [
+  { photo: "assets/img/noel-1.jpg",  photoHover: "assets/img/noel-2.jpg"  },
+  { photo: "assets/img/paul-1.jpg",  photoHover: "assets/img/paul-2.jpg"  },
+  { photo: "assets/img/kevin-2.jpg", photoHover: "assets/img/kevin-1.jpg" }
 ];
+const MEMBERS = (CONTENT.members || []).map(function (m, i) {
+  var photos = MEMBER_PHOTOS[i] || {};
+  return {
+    name:       m.name,
+    role:       m.role,
+    bio:        m.bio,
+    contact:    m.contact,
+    photo:      photos.photo,
+    photoHover: photos.photoHover
+  };
+});
 
 /* ---- Albums ---- */
 const ALBUMS = [
@@ -55,8 +49,7 @@ const ALBUMS = [
     year: "2026",
     status: "released",          // "released" or "upcoming"
     cover: "assets/img/album-titanium-attitude.png",
-    description:
-      "[B] True North NPK's debut album. Ten songs about resilience, gratitude and finding the sun-lit route - wrapped in West Coast art and a titanium spirit.",
+    description: CONTENT.albums.titaniumAttitudeDescription,
     songs: [
       {
         num: 1,
@@ -112,8 +105,6 @@ Couple of girls runnin' runnin' a runnin'
 Couple of girls runnin' - yeah
 Couple of girls… future McLean refugees
 Couple of girls… the future McLean refugees`,
-        meaning:
-          "[M] The band can add the story and meaning behind \"McLean Refugees\" here."
       },
       {
         num: 2,
@@ -156,8 +147,6 @@ But I want to see Dylan one more time and Chapin and Denver and Gord
 And wake up in Tahiti or a North Atlantic fjord
 And wake up in Kenya or Peru
 And I want to wake up with you`,
-        meaning:
-          "[N] The band can add the story and meaning behind \"Nowhere or Norway (Singing Sands)\" here."
       },
       {
         num: 3,
@@ -235,8 +224,6 @@ I am the Underdog, bold, strong and tough
 I am the Underdog, bold, strong and tough
 I am the Underdog, I am the Underdog
 I am the Underdog, bold, strong and tough`,
-        meaning:
-          "[O] The band can add the story and meaning behind \"Underdog\" here."
       },
       {
         num: 4,
@@ -283,8 +270,6 @@ To send a smile
 
 Send a smile
 Send a smile`,
-        meaning:
-          "[P] The band can add the story and meaning behind \"Send a Smile\" here."
       },
       {
         num: 5,
@@ -341,8 +326,6 @@ Titanium Attitude
 
 Shiny chrome heart attitude
 Titanium Attitude`,
-        meaning:
-          "[Q] The band can add the story and meaning behind \"Titanium Attitude\" here."
       },
       {
         num: 6,
@@ -398,8 +381,6 @@ At least I didn't die in '22
 Hey there Mister Reaper, have you got me any news?
 At least I didn't die in '22
 I'm still here… so gratitude`,
-        meaning:
-          "[R] The band can add the story and meaning behind \"Didn't Die in '22\" here."
       },
       {
         num: 7,
@@ -453,8 +434,6 @@ But I ain't doin' what I should
 
 Ain't doin' what I should
 Aaaaain't doin' what I should`,
-        meaning:
-          "[S] The band can add the story and meaning behind \"Busy\" here."
       },
       {
         num: 8,
@@ -521,8 +500,6 @@ Regrets are down to zero
 Got his honey over there in Florence land
 Got Jen there in Florence land
 Jennifer in Florence that's just grand`,
-        meaning:
-          "[T] The band can add the story and meaning behind \"Half Full\" here."
       },
       {
         num: 9,
@@ -581,8 +558,6 @@ Breathe deep - and count on me
 Close your eyes baby and count on
 Breathe deep and count on me
 Count on me (repeated)`,
-        meaning:
-          "[U] The band can add the story and meaning behind \"Count on Me\" here."
       },
       {
         num: 10,
@@ -661,8 +636,6 @@ Beware the devil's priest
 Avoid his fetid feast
 He could not care the least
 Beware the broken beast`,
-        meaning:
-          "[V] The band can add the story and meaning behind \"Beware the Broken Beast (Krampus Song)\" here."
       }
     ]
   },
@@ -674,8 +647,14 @@ Beware the broken beast`,
     year: "Coming Soon",
     status: "upcoming",
     cover: null,
-    description:
-      "[C] True North NPK's second album is on the way. This space is a placeholder - when the record is ready, add it to ALBUMS in js/data.js and it will appear here automatically, with its own player.",
+    description: CONTENT.albums.albumTwoDescription,
     songs: []
   }
 ];
+
+/* ---- Wire each song's "meaning" paragraph from CONTENT.songMeanings ---- */
+ALBUMS.forEach(function (album) {
+  album.songs.forEach(function (song) {
+    song.meaning = (CONTENT.songMeanings && CONTENT.songMeanings[song.title]) || "";
+  });
+});
