@@ -88,16 +88,34 @@ nothing special is required.)
 
 ---
 
-## Editing content - `js/data.js`
+## Editing text - `js/content.js`
 
-**Almost all content lives in one file: `js/data.js`.** Open it in any text
-editor. It is commented throughout. You can change:
+**Every piece of text the band might want to reword lives in one file:
+`js/content.js`.** Open it, edit the values between the quote marks, save,
+reload. Don't touch the keys (the words before the colon) or the commas at
+the end of each line.
+
+`content.js` covers:
+
+- the home hero description
+- both album descriptions
+- the three member cards (name, role, bio, contact)
+- the about-page paragraphs and section subtitles
+- the lyrics + photos page lead text
+- the footer tagline
+- the contact email and HearNow listen URL
+- all 10 song "Significance & Meaning" paragraphs
+
+## Editing songs, lyrics and players - `js/data.js`
+
+Structural content (the things that need new files alongside them) lives
+in `js/data.js`:
 
 - **Streaming links** (`STREAMING`) - the nav-bar icons. They are placeholders
   (`"#"`) until the band's profiles go live; replace `"#"` with the real URLs.
-- **Band members** (`MEMBERS`) - names, roles, photos, bios.
-- **Albums** (`ALBUMS`) - album titles, descriptions, songs, lyrics, and the
-  "meaning" paragraph shown on the Lyrics page.
+- **Member photos** (`MEMBER_PHOTOS`) - which image files go with which member.
+- **Albums** (`ALBUMS`) - album titles, years, cover image, song list,
+  per-song lyrics, audio file paths and lengths.
 
 ### The music player works two ways
 
@@ -135,8 +153,8 @@ release.
   real photo of the three members (keep the same filename, landscape works
   best).
 - **Contact email** - currently the placeholder `hello@truenorthnpk.com`.
-  Update it in **two** spots in `about.html` (the `mailto:` link and the `TO`
-  value in the small script near the bottom).
+  Update `contact.email` in `js/content.js`; the contact details and the
+  mail-to form will both pick it up.
 - **Contact form** - it opens the visitor's email app with the message ready to
   send (works with no server). To receive submissions directly instead, connect
   the form to a service such as Formspree or Web3Forms later.
@@ -149,7 +167,8 @@ release.
 index.html, music.html, lyrics.html, about.html   pages
 serve.py          local preview server (not needed once hosted)
 css/style.css                                      all styling
-js/data.js        all editable content (songs, lyrics, members, links)
+js/content.js     ALL editable text - the one file the band edits
+js/data.js        structural content: songs, lyrics, audio paths, links
 js/shared.js      nav bar + footer (shared by every page)
 js/player.js      music page: album rendering + audio/record player
 js/lyrics.js      lyrics page: song tree + pop-up
