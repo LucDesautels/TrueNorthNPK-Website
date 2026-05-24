@@ -106,7 +106,7 @@
             '<div class="ta-headshell"></div>' +
           '</div>' +
         '</div>' +
-        '<p class="record-caption">Spins while the music plays</p>' +
+        '<p class="record-caption" id="caption-' + album.id + '">Click a song to play</p>' +
       '</div>';
   }
 
@@ -278,6 +278,8 @@
     elTitle.textContent = item.song.title;
     elAlbum.textContent = item.album.title;
     bar.classList.add("active");
+    var cap = document.getElementById("caption-" + item.album.id);
+    if (cap) cap.textContent = item.song.title;
     highlightRow();
   }
 
@@ -325,6 +327,8 @@
   function showEmbed(album, song) {
     clearEmbeds();
     audio.pause();
+    var cap = document.getElementById("caption-" + album.id);
+    if (cap) cap.textContent = song.title;
     var wrap = document.getElementById("embed-" + album.id);
     if (!wrap) return;
     wrap.innerHTML =
