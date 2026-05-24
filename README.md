@@ -1,6 +1,6 @@
 ### Currently viewable on preview.truenorthnpk.com
 # Note from Luc:
-### To edit any text in the website go to the file and click the edit pencil. from there you can edit the text and create a "pull request", which once I approve will update within 5 minutes.
+### To edit any text in the website go to the [content file](https://github.com/LucDesautels/TrueNorthNPK-Website/blob/main/js/content.js) and click the edit pencil. from there you can edit the text and create a "pull request", which once I approve will update within 5 minutes.
 
 # True North NPK - Website
 
