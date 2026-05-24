@@ -849,6 +849,39 @@ input[type="range"].slider::-moz-range-thumb {
 .form-status { font-size: .9rem; color: var(--green); min-height: 1.2em; }
 
 /* =============================================================
+   PHOTOS PAGE - 3-column stretch / masonry gallery
+   ============================================================= */
+.photos-page { padding-top: 56px; }
+.photos-page h1 { font-size: clamp(2rem, 5vw, 3.2rem); text-transform: uppercase; }
+.photos-page .lead { color: var(--text-muted); margin-bottom: 28px; }
+.photos-page code {
+  background: var(--surface-2); border: 1px solid var(--border);
+  padding: 1px 6px; border-radius: 4px; font-size: .9em;
+}
+.photos-grid {
+  column-count: 3;
+  column-gap: 18px;
+}
+.photo-item {
+  display: block;
+  margin: 0 0 18px;
+  break-inside: avoid;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.photo-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.photo-item img {
+  width: 100%; height: auto; display: block;
+}
+
+/* =============================================================
    THEME TOGGLE + WEBSITE CONTROLS PANEL
    ============================================================= */
 .theme-toggle {
@@ -1009,6 +1042,12 @@ body[data-page="music"] .site-controls { bottom: 92px; }
   .modal-scroll { overflow: visible; }
   .modal-col-meaning { border-left: 0; border-top: 1px solid var(--border); }
   body[data-page="music"] .site-controls { bottom: 156px; }
+
+  .photos-grid { column-count: 2; }
+}
+
+@media (max-width: 520px) {
+  .photos-grid { column-count: 1; }
 }
 
 @media (max-width: 520px) {

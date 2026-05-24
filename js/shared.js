@@ -40,6 +40,7 @@ function buildHeader() {
     { id: "home",   label: "Home",    href: "index.html" },
     { id: "music",  label: "Music",   href: "music.html" },
     { id: "lyrics", label: "Lyrics",  href: "lyrics.html" },
+    { id: "photos", label: "Photos",  href: "photos.html" },
     { id: "about",  label: "About",   href: "about.html" },
     { id: "contact",label: "Contact", href: "about.html#contact" }
   ];
@@ -93,6 +94,7 @@ function buildFooter() {
           <li><a href="index.html">Home</a></li>
           <li><a href="music.html">Music</a></li>
           <li><a href="lyrics.html">Lyrics</a></li>
+          <li><a href="photos.html">Photos</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="about.html#contact">Contact</a></li>
         </ul>
