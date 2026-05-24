@@ -41,8 +41,8 @@ const MEMBERS = [
   {
     name: "Kevin Zarnett",
     role: "Vocals & Instrumentation",
-    photo: "assets/img/kevin-1.jpg",
-    photoHover: "assets/img/kevin-2.jpg",
+    photo: "assets/img/kevin-2.jpg",
+    photoHover: "assets/img/kevin-1.jpg",
     bio: "[F] Kevin handles vocals and instrumentation, and recorded and mixed the album."
   }
 ];
