@@ -39,7 +39,7 @@
   }
 
   function root() { return document.documentElement; }
-  function currentTheme() { return root().getAttribute("data-theme") || "light"; }
+  function currentTheme() { return root().getAttribute("data-theme") || "dark"; }
   function readVar(name) {
     return getComputedStyle(root()).getPropertyValue(name).trim();
   }

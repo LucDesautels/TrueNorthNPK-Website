@@ -18,7 +18,8 @@ const STREAMING = [
   { name: "Spotify",       url: "#", icon: "spotify" },
   { name: "Apple Music",   url: "#", icon: "apple" },
   { name: "YouTube Music", url: "#", icon: "youtube" },
-  { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" }
+  { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" },
+  { name: "Bandcamp",      url: "https://truenorthnpk.bandcamp.com/album/titanium-attitude", icon: "bandcamp" }
 ];
 
 /* ---- Band members ----
