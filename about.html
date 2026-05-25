@@ -8,6 +8,7 @@
   <link rel="icon" href="assets/img/badge.png">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/controls.js"></script>
+  <script src="js/analytics.js"></script>
 </head>
 <body data-page="about">
 
@@ -45,10 +46,9 @@
     <section class="section contact-section" id="contact">
       <div class="container">
         <h2>Contact</h2>
-        <p class="lead" data-content="about.contactLead"></p>
         <div class="contact-grid">
           <div class="contact-info">
-            <!-- email, listen URL, member names + contacts all come from js/content.js -->
+            <!-- email + Listen URL come from js/content.js -->
             <div class="contact-detail">
               <p class="cd-label">Email</p>
               <p class="cd-value"><a href="mailto:" data-content-email></a></p>
@@ -56,10 +56,6 @@
             <div class="contact-detail">
               <p class="cd-label">Listen</p>
               <p class="cd-value"><a href="#" data-content-listen target="_blank" rel="noopener"></a></p>
-            </div>
-            <div class="contact-members">
-              <h4>Band Members</h4>
-              <ul data-content-member-list></ul>
             </div>
           </div>
 
@@ -103,6 +99,13 @@
     /* render member cards from js/data.js */
     (function () {
       document.getElementById("members-grid").innerHTML = MEMBERS.map(function (m) {
+        var linkHtml = "";
+        if (m.link && m.link.url) {
+          linkHtml = '<p class="member-link">' +
+            '<a href="' + m.link.url + '" target="_blank" rel="noopener">' +
+              (m.link.label || m.link.url) +
+            '</a></p>';
+        }
         return '' +
           '<article class="member-card">' +
             '<div class="member-photo">' +
@@ -113,6 +116,7 @@
               '<h3>' + m.name + '</h3>' +
               '<p class="member-role">' + m.role + '</p>' +
               '<p>' + m.bio + '</p>' +
+              linkHtml +
             '</div>' +
           '</article>';
       }).join("");

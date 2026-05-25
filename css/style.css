@@ -182,12 +182,14 @@ h1, h2, h3, h4 {
 }
 .brand-text { display: flex; flex-direction: column; line-height: 1; }
 .brand-true {
-  font-family: var(--display); font-weight: 500;
-  font-size: .96rem; letter-spacing: .14em; text-transform: uppercase;
+  font-family: 'Segoe UI Black', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: .96rem; letter-spacing: .12em; text-transform: uppercase;
 }
 .brand-npk {
-  font-family: var(--display); font-weight: 700;
-  font-size: 1.18rem; letter-spacing: .2em; color: var(--accent);
+  font-family: 'Segoe UI Black', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 900;
+  font-size: 1.18rem; letter-spacing: .18em; color: var(--accent);
 }
 
 .nav-collapse {
@@ -280,6 +282,8 @@ h1, h2, h3, h4 {
 }
 .hero-inner { width: min(1180px, 92vw); margin: 0 auto; max-width: 760px; }
 .hero h1 {
+  font-family: 'Segoe UI Black', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 900;
   font-size: clamp(2.8rem, 8vw, 6rem);
   text-transform: uppercase;
   letter-spacing: .04em;
@@ -807,6 +811,9 @@ input[type="range"].slider::-moz-range-thumb {
   font-size: .82rem; margin-bottom: 10px;
 }
 .member-info p { color: var(--text-muted); font-size: .92rem; }
+.member-info .member-link { margin-top: 10px; font-size: .9rem; }
+.member-info .member-link a { color: var(--secondary); font-weight: 500; }
+.member-info .member-link a:hover { color: var(--accent); }
 
 /* contact */
 .contact-section { background: var(--bg-2); }

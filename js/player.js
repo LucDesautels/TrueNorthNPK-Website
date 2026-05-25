@@ -65,11 +65,12 @@
         '</li>';
     }).join("");
 
+    var meta = (album.year ? album.year + ' . ' : '') + album.songs.length + ' songs';
     return '' +
       '<div class="album-head">' +
-        '<p class="eyebrow">Album 1</p>' +
+        '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
         '<h2>' + esc(album.title) + '</h2>' +
-        '<p class="album-meta">' + album.year + ' . ' + album.songs.length + ' songs</p>' +
+        '<p class="album-meta">' + meta + '</p>' +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body" id="body-' + album.id + '">' +
@@ -78,7 +79,6 @@
           recordPlayerHtml(album) +
         '</div>' +
         '<div class="album-right">' +
-          '<p class="album-desc">' + esc(album.description) + '</p>' +
           '<ul class="song-list">' + rows + '</ul>' +
           '<div class="embed-wrap" id="embed-' + album.id + '"></div>' +
         '</div>' +
@@ -122,15 +122,11 @@
   }
 
   function wireframePanel(album, ai) {
-    var slots = "";
-    for (var i = 1; i <= 6; i++) {
-      slots += '<div class="wf-box wf-song">Song ' + i + ' - 0:00</div>';
-    }
     return '' +
       '<div class="album-head">' +
-        '<p class="eyebrow">Album ' + (ai + 1) + ' - Placeholder</p>' +
+        '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + (ai + 1))) + '</p>' +
         '<h2>' + esc(album.title) + '</h2>' +
-        '<p class="album-meta">' + album.year + '</p>' +
+        (album.year ? '<p class="album-meta">' + esc(album.year) + '</p>' : '') +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body">' +
@@ -138,8 +134,6 @@
           '<div class="wf-box wf-art">Album<br>Art</div>' +
         '</div>' +
         '<div class="album-right">' +
-          '<div class="wf-box" style="padding:22px;margin-bottom:14px">Album Description</div>' +
-          '<div class="wf-list">' + slots + '</div>' +
           '<p class="wf-note">' + esc(album.description) + '</p>' +
         '</div>' +
       '</div>';

@@ -26,9 +26,8 @@ const CONTENT = {
   home: {
     // [A] - Hero description (under the band name on the landing page)
     heroDescription:
-      "True North NPK is a three-piece band of friends - Noel, Paul and Kevin - " +
-      "writing honest songs about resilience, gratitude and the long way home. " +
-      "Their debut album, Titanium Attitude, is out now."
+      "True North NPK is Noel, Paul and Kevin with a little help from their friends. " +
+      "Their debut rock album, Titanium Attitude, is out now."
   },
 
   /* ------------------------------------------------------------
@@ -37,8 +36,7 @@ const CONTENT = {
   albums: {
     // [B] - Titanium Attitude (debut album)
     titaniumAttitudeDescription:
-      "True North NPK's debut album. Ten songs about resilience, gratitude and " +
-      "finding the sun-lit route - wrapped in West Coast art and a titanium spirit.",
+      "True North NPK's debut album.",
 
     // [C] - Album two placeholder
     albumTwoDescription:
@@ -52,24 +50,23 @@ const CONTENT = {
   about: {
     // [G] - Band description, paragraph 1
     paragraph1:
-      "True North NPK is a three-piece band - Noel Desautels, Paul Cusenza and " +
+      "True North NPK is a rock band comprised of Noel Desautels, Paul Cusenza and " +
       "Kevin Zarnett. The \"NPK\" is simply the three of them: friends who write " +
-      "and record songs together.",
+      "and record songs together with a little help from their friends.",
 
     // [H] - Band description, paragraph 2
     paragraph2:
-      "Their music leans on folk and rock roots, with honest lyrics about resilience, " +
+      "Their music leans on folk and rock roots, with lyrics about resilience, " +
       "gratitude, family and finding the sun-lit route through hard times. Their debut " +
       "album, Titanium Attitude, was produced by the band, with artwork in the style of " +
-      "West Coast art.",
+      "Canadian West Coast art.",
 
     // [I] - "The Members" subtitle
     membersSectionLead:
-      "Hover over a card to see a second photo of each member.",
+      "Hover over a card to see a second photo of each member."
 
-    // [J] - "Contact" subtitle
-    contactLead:
-      "Booking, press or just saying hello - reach out below."
+    // (The Contact section subtitle is intentionally absent - there is no
+    //  subtitle line under the Contact heading on the About page.)
   },
 
   /* ------------------------------------------------------------
@@ -81,24 +78,22 @@ const CONTENT = {
   members: [
     {
       // [D]
-      name:    "Noel Desautels",
-      role:    "Vocals, Banjo & Guitar",
-      bio:     "Noel brings the strings to True North NPK - banjo, guitar and vocals woven through the record.",
-      contact: "[contact placeholder]"
+      name: "Noel Desautels",
+      role: "Vocals, Banjo & Guitar",
+      bio:  "Noel brings strings to True North NPK - banjo, guitar and vocals woven through the record."
     },
     {
       // [E]
-      name:    "Paul Cusenza",
-      role:    "Vocals & Artwork Design",
-      bio:     "Paul lends his voice to the band and designed the Titanium Attitude artwork.",
-      contact: "[contact placeholder]"
+      name: "Paul Cusenza",
+      role: "Vocals & Artwork Design",
+      bio:  "Paul lends his voice to the band and designed the Titanium Attitude artwork."
     },
     {
       // [F]
-      name:    "Kevin Zarnett",
-      role:    "Vocals & Instrumentation",
-      bio:     "Kevin handles vocals and instrumentation, and recorded and mixed the album.",
-      contact: "[contact placeholder]"
+      name: "Kevin Zarnett",
+      role: "Vocals & Instrumentation",
+      bio:  "Kevin handles vocals and instrumentation, and recorded and mixed the album.",
+      link: { url: "https://kevinzarnett.com/", label: "kevinzarnett.com" }
     }
   ],
 

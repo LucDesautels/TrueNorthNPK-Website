@@ -161,6 +161,22 @@ release.
 
 ---
 
+## Traffic analytics (optional)
+
+The site is wired for Google Analytics 4 but disabled by default. To turn
+it on, open `js/analytics.js`, create a free GA4 property at
+[analytics.google.com](https://analytics.google.com/), and paste your
+Measurement ID (looks like `G-XXXXXXXXXX`) between the empty quotes:
+
+```js
+const TNNPK_GA_ID = "G-XXXXXXXXXX";
+```
+
+While that string is empty, no analytics script is loaded and no tracking
+happens.
+
+---
+
 ## Folder structure
 
 ```
@@ -173,6 +189,7 @@ js/shared.js      nav bar + footer (shared by every page)
 js/player.js      music page: album rendering + audio/record player
 js/lyrics.js      lyrics page: song tree + pop-up
 js/controls.js    light/dark theme + the on-page Website Controls panel
+js/analytics.js   Google Analytics stub (paste a Measurement ID to enable)
 assets/img/       images
 assets/audio/     the 10 album track MP3s
 assets/docs/      the full PDF lyric book

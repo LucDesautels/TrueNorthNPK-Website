@@ -30,15 +30,7 @@ const MEMBER_PHOTOS = [
   { photo: "assets/img/kevin-2.jpg", photoHover: "assets/img/kevin-1.jpg" }
 ];
 const MEMBERS = (CONTENT.members || []).map(function (m, i) {
-  var photos = MEMBER_PHOTOS[i] || {};
-  return {
-    name:       m.name,
-    role:       m.role,
-    bio:        m.bio,
-    contact:    m.contact,
-    photo:      photos.photo,
-    photoHover: photos.photoHover
-  };
+  return Object.assign({}, m, MEMBER_PHOTOS[i] || {});
 });
 
 /* ---- Albums ---- */
@@ -46,9 +38,10 @@ const ALBUMS = [
   {
     id: "titanium-attitude",
     title: "Titanium Attitude",
+    eyebrow: "NPK-001",
     year: "2026",
     status: "released",          // "released" or "upcoming"
-    cover: "assets/img/album-titanium-attitude.png",
+    cover: "assets/img/album-titanium-attitude.jpg",
     description: CONTENT.albums.titaniumAttitudeDescription,
     songs: [
       {
@@ -643,8 +636,9 @@ Beware the broken beast`,
   /* ---- Album 2: placeholder / wireframe for a future release ---- */
   {
     id: "album-two",
-    title: "Album Two",
-    year: "Coming Soon",
+    title: "Coming Soon",
+    eyebrow: "NPK-002",
+    year: "",
     status: "upcoming",
     cover: null,
     description: CONTENT.albums.albumTwoDescription,
