@@ -152,7 +152,7 @@ release.
   `assets/img/band-placeholder.jpg` (a placeholder). Replace that file with the
   real photo of the three members (keep the same filename, landscape works
   best).
-- **Contact email** - currently the placeholder `hello@truenorthnpk.com`.
+- **Contact email** - currently `contact@truenorthnpk.com`.
   Update `contact.email` in `js/content.js`; the contact details and the
   mail-to form will both pick it up.
 - **Contact form** - it opens the visitor's email app with the message ready to

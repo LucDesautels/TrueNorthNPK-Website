@@ -101,7 +101,7 @@ const CONTENT = {
      CONTACT  (email + listen link in the Contact section)
      ------------------------------------------------------------ */
   contact: {
-    email:     "hello@truenorthnpk.com",
+    email:     "contact@truenorthnpk.com",
     listenUrl: "https://truenorthnpk.hearnow.com/",
     bandcamp:  "https://truenorthnpk.bandcamp.com/album/titanium-attitude"
   },
