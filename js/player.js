@@ -336,6 +336,14 @@
   }
 
   /* ---------- lyrics sidebar (inside the album box) ---------- */
+  function hasMeaning(s) {
+    if (!s) return false;
+    s = String(s).trim();
+    if (!s) return false;
+    if (s.indexOf("The band can add") === 0) return false;
+    if (/\bplaceholder\b/i.test(s)) return false;
+    return true;
+  }
   function openLyrics(album, song) {
     var side = document.getElementById("lyrics-" + album.id);
     var body = document.getElementById("body-" + album.id);
@@ -347,10 +355,13 @@
     var words = document.createElement("div");
     words.className = "ls-lyrics";
     words.textContent = song.lyrics;
-    var meaning = document.createElement("div");
-    meaning.className = "ls-meaning";
-    meaning.textContent = song.meaning;
-    sb.append(words, meaning);
+    sb.appendChild(words);
+    if (hasMeaning(song.meaning)) {
+      var meaning = document.createElement("div");
+      meaning.className = "ls-meaning";
+      meaning.textContent = song.meaning;
+      sb.appendChild(meaning);
+    }
     body.classList.add("lyrics-open");
     side.setAttribute("aria-hidden", "false");
     sb.scrollTop = 0;   /* after the sidebar is visible, so it applies */

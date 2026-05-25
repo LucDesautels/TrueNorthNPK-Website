@@ -743,6 +743,10 @@ input[type="range"].slider::-moz-range-thumb {
   display: grid; grid-template-columns: 1.3fr 1fr;
   flex: 1; min-height: 0;
 }
+/* when a song has no real "meaning" yet, hide the column and
+   let the lyrics fill the full width */
+.modal.no-meaning .modal-cols { grid-template-columns: 1fr; }
+.modal.no-meaning .modal-col-meaning { display: none; }
 .modal-col {
   display: flex; flex-direction: column; min-height: 0;
   padding: 18px 22px 22px;

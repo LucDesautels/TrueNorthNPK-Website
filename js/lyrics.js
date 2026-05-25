@@ -54,6 +54,18 @@
   var mLyrics  = document.getElementById("modal-lyrics");
   var mMeaning = document.getElementById("modal-meaning");
 
+  /* True only if the song has real meaning text - empty strings and the
+     "The band can add..." auto-placeholders count as no meaning. */
+  function hasMeaning(s) {
+    if (!s) return false;
+    s = String(s).trim();
+    if (!s) return false;
+    if (s.indexOf("The band can add") === 0) return false;
+    if (/\bplaceholder\b/i.test(s)) return false;
+    return true;
+  }
+
+  var modalEl = overlay.querySelector(".modal");
   var lastKey = null;
   rootEl.addEventListener("click", function (e) {
     var node = e.target.closest(".tree-song");
@@ -65,7 +77,13 @@
     mTitle.childNodes[0].nodeValue = song.title;
     mSub.textContent = album.title + " . " + song.length;
     mLyrics.textContent = song.lyrics;
-    mMeaning.textContent = song.meaning;
+    if (hasMeaning(song.meaning)) {
+      mMeaning.textContent = song.meaning;
+      modalEl.classList.remove("no-meaning");
+    } else {
+      mMeaning.textContent = "";
+      modalEl.classList.add("no-meaning");
+    }
     overlay.classList.add("open");
     /* reset scroll only for a different song - and only once the
        modal is visible, otherwise scrollTop does not apply */
