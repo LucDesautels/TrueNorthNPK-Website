@@ -41,7 +41,31 @@ const CONTENT = {
     // [C] - Album two placeholder
     albumTwoDescription:
       "True North NPK's second album is on the way. This space is a placeholder - " +
-      "when the record is ready, it will appear here automatically with its own player."
+      "when the record is ready, it will appear here automatically with its own player.",
+
+    // [X] - Full liner-note credits shown below the Titanium Attitude
+    //       song list on the Music page. Blank lines start new sections.
+    titaniumAttitudeCredits:
+      "All songs © 2026 Noel Desautels, Paul Cusenza, and Kevin Zarnett\n" +
+      "Additional co-writing contributions: Luc Desautels (3), Norm Weins (7), Kent E.M. Groves (8).\n" +
+      "\n" +
+      "Noel: Vocals, banjo, & guitar\n" +
+      "Paul: Vocals\n" +
+      "Kevin: Vocals and instrumentation\n" +
+      "\n" +
+      "Additional musicians:\n" +
+      "Mark Kelso: Drums & Percussion (1-7, 9-10)\n" +
+      "Deborah Treger: Vocals (5)\n" +
+      "Lawrie Ingles: Piano (9)\n" +
+      "Laurelle Augustyn & Michelle White: Vocals (9)\n" +
+      "\n" +
+      "Produced by True North NPK\n" +
+      "Artwork Concept: True North NPK\n" +
+      "Artwork Design & Photography: Paul Cusenza\n" +
+      "Recorded and mixed by Kevin Zarnett\n" +
+      "Drums recorded by Mark Kelso at Groovy Drums Studio\n" +
+      "Additional recording by Noel Desautels & Paul Cusenza\n" +
+      "Mastered by brilliantfish @ TELEPHONE"
   },
 
   /* ------------------------------------------------------------
@@ -63,7 +87,10 @@ const CONTENT = {
 
     // [I] - "The Members" subtitle
     membersSectionLead:
-      "Hover over a card to see a second photo of each member."
+      "Hover over a card to see a second photo of each member.",
+
+    // [Y] - Small credit shown at the very bottom of the About page
+    siteCredit: "Website created and maintained by Luc Desautels."
 
     // (The Contact section subtitle is intentionally absent - there is no
     //  subtitle line under the Contact heading on the About page.)
@@ -80,19 +107,19 @@ const CONTENT = {
       // [D]
       name: "Noel Desautels",
       role: "Vocals, Banjo & Guitar",
-      bio:  "Noel brings strings to True North NPK - banjo, guitar and vocals woven through the record."
+      bio:  "Noel brings strings to True North NPK - banjo, guitar and vocals woven through the record; co-writer of all songs."
     },
     {
       // [E]
       name: "Paul Cusenza",
       role: "Vocals & Artwork Design",
-      bio:  "Paul lends his voice to the band and designed the Titanium Attitude artwork."
+      bio:  "Paul lends his voice to the band and designed the Titanium Attitude artwork; co-writer of all songs."
     },
     {
       // [F]
       name: "Kevin Zarnett",
       role: "Vocals & Instrumentation",
-      bio:  "Kevin handles vocals and instrumentation, and recorded and mixed the album.",
+      bio:  "Kevin handles vocals and instrumentation, and recorded and mixed the album; co-writer of all songs.",
       link: { url: "https://kevinzarnett.com/", label: "kevinzarnett.com" }
     }
   ],

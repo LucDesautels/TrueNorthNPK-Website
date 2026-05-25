@@ -363,6 +363,43 @@ h1, h2, h3, h4 {
 }
 .album-head .album-meta { color: var(--text-muted); }
 
+/* Bandcamp Buy / Download CTA shown in the album head */
+.album-buy {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 14px;
+  background: var(--secondary); color: #fff;
+  padding: 11px 22px; border-radius: 999px;
+  font-family: var(--display); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .07em; font-size: .82rem;
+  transition: background-color .18s ease, transform .18s ease;
+}
+.album-buy:hover {
+  background: var(--secondary-hi); color: #fff;
+  transform: translateY(-1px);
+}
+.album-buy-arrow { font-size: 1.1em; line-height: 1; }
+
+/* Full album credits panel under the song list */
+.album-credits {
+  margin-top: 36px;
+  padding: 22px 26px 24px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.album-credits-title {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  text-transform: uppercase; letter-spacing: .12em;
+  color: var(--secondary);
+  margin-bottom: 12px;
+}
+.album-credits-body {
+  white-space: pre-wrap;
+  font-size: .88rem; line-height: 1.7;
+  color: var(--text-muted);
+}
+
 .album-body {
   display: grid; grid-template-columns: 360px 1fr; gap: 44px;
   align-items: start;
@@ -672,8 +709,35 @@ input[type="range"].slider::-moz-range-thumb {
 }
 
 /* =============================================================
-   LYRICS PAGE
+   LYRICS PAGE - album raven artwork on the page background,
+   central "song list" panel forced to dark for legibility.
    ============================================================= */
+body[data-page="lyrics"] {
+  background:
+    linear-gradient(rgba(8, 9, 11, .35), rgba(8, 9, 11, .55)),
+    url('../assets/img/raven.jpg') center center / cover fixed no-repeat;
+  background-color: #0c0d10;
+}
+body[data-page="lyrics"] #site-header { background: transparent; }
+body[data-page="lyrics"] .navbar { background: rgba(8, 9, 11, 0.6); }
+body[data-page="lyrics"] .lyrics-layout {
+  /* scope the dark-theme variables to the lyrics panel so the song
+     list stays on a black background regardless of the global theme */
+  --bg:          #15171a;
+  --bg-2:        #1c1f23;
+  --surface:     #1f2429;
+  --surface-2:   #272d34;
+  --border:      #363d45;
+  --text:        #ece9e3;
+  --text-muted:  #99a0a7;
+  background: var(--bg);
+  color: var(--text);
+  padding: 40px 38px 56px;
+  margin: 28px auto 56px;
+  border-radius: 14px;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .55);
+}
+
 .lyrics-layout { padding: 56px 0 90px; }
 .lyrics-layout h1 { font-size: clamp(2rem, 5vw, 3.2rem); text-transform: uppercase; }
 .lyrics-layout .lead { color: var(--text-muted); margin-bottom: 14px; }
@@ -858,6 +922,14 @@ input[type="range"].slider::-moz-range-thumb {
 .form-field textarea { resize: vertical; min-height: 130px; }
 .form-note { color: var(--text-muted); font-size: .82rem; }
 .form-status { font-size: .9rem; color: var(--green); min-height: 1.2em; }
+
+/* Small "Website by Luc Desautels" credit at the bottom of the About page */
+.site-credit {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: .82rem; font-style: italic;
+  padding: 28px 16px 36px;
+}
 
 /* =============================================================
    PHOTOS PAGE - 3-column stretch / masonry gallery

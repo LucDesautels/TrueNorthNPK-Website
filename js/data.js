@@ -44,6 +44,7 @@ const ALBUMS = [
     status: "released",          // "released" or "upcoming"
     cover: "assets/img/album-titanium-attitude.jpg",
     description: CONTENT.albums.titaniumAttitudeDescription,
+    credits: CONTENT.albums.titaniumAttitudeCredits,
     songs: [
       {
         num: 1,

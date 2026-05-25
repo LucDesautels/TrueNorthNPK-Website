@@ -66,11 +66,24 @@
     }).join("");
 
     var meta = (album.year ? album.year + ' . ' : '') + album.songs.length + ' songs';
+    var bandcampUrl = (typeof CONTENT !== 'undefined' && CONTENT.contact && CONTENT.contact.bandcamp) || '';
+    var buyCta = bandcampUrl
+      ? '<a class="album-buy" href="' + bandcampUrl + '" target="_blank" rel="noopener">' +
+          '<span>Buy / Download on Bandcamp</span><span class="album-buy-arrow">&rarr;</span>' +
+        '</a>'
+      : '';
+    var credits = album.credits
+      ? '<section class="album-credits">' +
+          '<h3 class="album-credits-title">Credits</h3>' +
+          '<div class="album-credits-body">' + esc(album.credits) + '</div>' +
+        '</section>'
+      : '';
     return '' +
       '<div class="album-head">' +
         '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
         '<h2>' + esc(album.title) + '</h2>' +
         '<p class="album-meta">' + meta + '</p>' +
+        buyCta +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body" id="body-' + album.id + '">' +
@@ -81,6 +94,7 @@
         '<div class="album-right">' +
           '<ul class="song-list">' + rows + '</ul>' +
           '<div class="embed-wrap" id="embed-' + album.id + '"></div>' +
+          credits +
         '</div>' +
         lyricsSidebarHtml(album) +
       '</div>';
