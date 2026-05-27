@@ -212,7 +212,9 @@ h1, h2, h3, h4 {
 .nav-links a:hover { color: var(--accent-hi); background: var(--surface-2); }
 .nav-links a.active { color: var(--accent); }
 
+.nav-streaming-wrap { display: flex; gap: 0; }
 .nav-streaming { display: flex; gap: 4px; padding-left: 14px; border-left: 1px solid var(--border); }
+.nav-streaming-ig { padding-right: 14px; }
 .stream-link {
   display: flex; align-items: center; justify-content: center;
   color: var(--text-muted);

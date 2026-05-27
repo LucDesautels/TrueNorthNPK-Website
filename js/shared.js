@@ -64,8 +64,10 @@ function buildHeader() {
       </button>
       <div class="nav-collapse">
         <ul class="nav-links">${navItems}</ul>
-        <div class="nav-streaming nav-streaming-ig">${buildStreamingLinks("nav-stream", STREAMING.filter(function(s){return s.icon==="instagram";}))}</div>
-        <div class="nav-streaming">${buildStreamingLinks("nav-stream", STREAMING.filter(function(s){return s.icon!=="instagram";}))}</div>
+        <div class="nav-streaming-wrap">
+          <div class="nav-streaming nav-streaming-ig">${buildStreamingLinks("nav-stream", STREAMING.filter(function(s){return s.icon==="instagram";}))}</div>
+          <div class="nav-streaming">${buildStreamingLinks("nav-stream", STREAMING.filter(function(s){return s.icon!=="instagram";}))}</div>
+        </div>
       </div>
     </nav>`;
 
