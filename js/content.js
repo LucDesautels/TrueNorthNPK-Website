@@ -65,6 +65,7 @@ const CONTENT = {
       "Drums recorded by Mark Kelso at Groovy Drums Studio\n" +
       "Additional recording by Noel Desautels & Paul Cusenza\n" +
       "Mastered by brilliantfish @ TELEPHONE"
+      "Physical Copy Pressed by Train Records in Canada"
   },
 
   /* ------------------------------------------------------------
