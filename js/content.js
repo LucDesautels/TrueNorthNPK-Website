@@ -85,10 +85,6 @@ const CONTENT = {
       "album, Titanium Attitude, was produced by the band, with artwork in the style of " +
       "Canadian West Coast art.",
 
-    // [I] - "The Members" subtitle
-    membersSectionLead:
-      "Hover over a card to see a second photo of each member.",
-
     // [Y] - Small credit shown at the very bottom of the About page
     siteCredit: "Website created and maintained by Luc Desautels."
 
