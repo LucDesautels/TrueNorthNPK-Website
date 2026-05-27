@@ -79,16 +79,11 @@
         '</section>'
       : '';
     return '' +
-      '<div class="album-head album-head-split">' +
-        '<div class="album-head-text">' +
-          '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
-          '<h2>' + esc(album.title) + '</h2>' +
-          '<p class="album-meta">' + meta + '</p>' +
-          buyCta +
-        '</div>' +
-        '<div class="album-head-art">' +
-          recordPlayerHtml(album) +
-        '</div>' +
+      '<div class="album-head">' +
+        '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
+        '<h2>' + esc(album.title) + '</h2>' +
+        '<p class="album-meta">' + meta + '</p>' +
+        buyCta +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body" id="body-' + album.id + '">' +
@@ -99,6 +94,7 @@
               ? '<img class="cover-hover" src="' + album.coverHover + '" alt="" aria-hidden="true">'
               : '') +
           '</div>' +
+          recordPlayerHtml(album) +
         '</div>' +
         '<div class="album-right">' +
           '<ul class="song-list">' + rows + '</ul>' +
