@@ -260,6 +260,12 @@ h1, h2, h3, h4 {
 .footer-stream { gap: 9px; justify-content: flex-start; color: var(--text-muted); font-size: .92rem; }
 .footer-stream svg { width: 18px; height: 18px; }
 .footer-stream:hover { color: var(--accent-hi); }
+/* line spacer between Bandcamp and Instagram in the footer */
+.footer-streaming a[title="Instagram"] {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
 .footer-nav { list-style: none; display: flex; flex-direction: column; gap: 7px; }
 .footer-nav a { color: var(--text-muted); }
 .footer-nav a:hover { color: var(--accent-hi); }
@@ -682,9 +688,9 @@ h1, h2, h3, h4 {
 }
 .pb-play {
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--secondary); color: #fff;
+  background: var(--accent); color: var(--accent-ink);
 }
-.pb-play:hover { background: var(--secondary-hi); color: #fff; }
+.pb-play:hover { background: var(--accent-hi); color: var(--accent-ink); }
 .pb-play svg { width: 20px; height: 20px; }
 .pb-progress { display: flex; align-items: center; gap: 10px; width: min(440px, 46vw); }
 .pb-time { font-family: var(--display); font-size: .8rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
@@ -709,7 +715,7 @@ input[type="range"].slider::-moz-range-thumb {
   width: 14px; height: 14px; border-radius: 50%;
   background: var(--slider-col, var(--accent)); border: 0;
 }
-.pb-vol { width: 96px; flex: none; --slider-col: var(--secondary); }
+.pb-vol { width: 96px; flex: none; }
 
 /* ---- Streaming embed (when a song uses a Spotify/YouTube link) ---- */
 .embed-wrap { margin-top: 14px; }
