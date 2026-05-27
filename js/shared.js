@@ -145,6 +145,15 @@ function applyContent() {
     });
   }
 
+  var instagram = CONTENT.contact && CONTENT.contact.instagram;
+  if (instagram) {
+    var handle = instagram.replace(/^@/, "");
+    document.querySelectorAll("[data-content-instagram]").forEach(function (a) {
+      a.href = "https://instagram.com/" + handle;
+      a.textContent = "@" + handle;
+    });
+  }
+
   var memberList = document.querySelector("[data-content-member-list]");
   if (memberList && Array.isArray(CONTENT.members)) {
     memberList.innerHTML = CONTENT.members.map(function (m) {

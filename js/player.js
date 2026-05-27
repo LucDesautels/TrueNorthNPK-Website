@@ -79,17 +79,21 @@
         '</section>'
       : '';
     return '' +
-      '<div class="album-head">' +
-        '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
-        '<h2>' + esc(album.title) + '</h2>' +
-        '<p class="album-meta">' + meta + '</p>' +
-        buyCta +
+      '<div class="album-head album-head-split">' +
+        '<div class="album-head-text">' +
+          '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
+          '<h2>' + esc(album.title) + '</h2>' +
+          '<p class="album-meta">' + meta + '</p>' +
+          buyCta +
+        '</div>' +
+        '<div class="album-head-art">' +
+          recordPlayerHtml(album) +
+        '</div>' +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body" id="body-' + album.id + '">' +
         '<div class="album-left">' +
           '<div class="album-art"><img src="' + album.cover + '" alt="' + esc(album.title) + ' album cover"></div>' +
-          recordPlayerHtml(album) +
         '</div>' +
         '<div class="album-right">' +
           '<ul class="song-list">' + rows + '</ul>' +

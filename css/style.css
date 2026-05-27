@@ -354,6 +354,28 @@ h1, h2, h3, h4 {
 .album-panel:nth-child(even) { background: var(--bg-2); }
 
 .album-head { margin-bottom: 28px; }
+/* Two-column album header: text on the left, turntable on the right */
+.album-head-split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 36px;
+}
+.album-head-split .album-head-text { min-width: 0; }
+.album-head-split .album-head-art { flex-shrink: 0; }
+/* Slightly smaller turntable when it lives in the header */
+.album-head-art .turntable {
+  width: 260px; height: 260px;
+  transform: scale(0.88);
+  transform-origin: center right;
+}
+.album-head-art .record-player {
+  padding: 14px 14px 12px;
+}
+.album-head-art .record-caption {
+  margin-top: -8px;
+  font-size: .72rem;
+}
 .album-head .eyebrow {
   font-family: var(--display); letter-spacing: .18em; text-transform: uppercase;
   color: var(--accent); font-size: .85rem;
@@ -1108,6 +1130,17 @@ body[data-page="music"] .site-controls { bottom: 92px; }
   .album-body.lyrics-open { grid-template-columns: 1fr; gap: 28px; }
   .album-left { flex-direction: row; flex-wrap: wrap; }
   .album-art { max-width: 280px; }
+
+  /* stack turntable below the title on narrow screens */
+  .album-head-split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .album-head-art {
+    display: flex;
+    justify-content: center;
+  }
+  .album-head-art .turntable { transform-origin: center center; }
   .album-body.lyrics-open .lyrics-sidebar {
     position: static; max-height: 65vh;
   }

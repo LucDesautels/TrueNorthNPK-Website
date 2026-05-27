@@ -130,7 +130,8 @@ const CONTENT = {
   contact: {
     email:     "contact@truenorthnpk.com",
     listenUrl: "https://truenorthnpk.hearnow.com/",
-    bandcamp:  "https://truenorthnpk.bandcamp.com/album/titanium-attitude"
+    bandcamp:  "https://truenorthnpk.bandcamp.com/album/titanium-attitude",
+    instagram: "True_North_NPK"            /* handle only, no @ */
   },
 
   /* ------------------------------------------------------------

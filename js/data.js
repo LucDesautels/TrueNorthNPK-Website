@@ -39,7 +39,7 @@ const ALBUMS = [
   {
     id: "titanium-attitude",
     title: "Titanium Attitude",
-    eyebrow: "NPK-001",
+    eyebrow: "Album NPK-001",
     year: "2026",
     status: "released",          // "released" or "upcoming"
     cover: "assets/img/album-titanium-attitude.jpg",
@@ -639,7 +639,7 @@ Beware the broken beast`,
   {
     id: "album-two",
     title: "Coming Soon",
-    eyebrow: "NPK-002",
+    eyebrow: "Album NPK-002",
     year: "",
     status: "upcoming",
     cover: null,
