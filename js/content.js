@@ -149,8 +149,9 @@ const CONTENT = {
      ------------------------------------------------------------ */
   photos: {
     // [W]
+     //(Placeholders for now - drop real images into assets/img/photos/.)
     pageLead:
-      "A growing gallery of band photos. (Placeholders for now - drop real images into assets/img/photos/.)"
+      "A growing gallery of band photos."
   },
 
   /* ------------------------------------------------------------
