@@ -387,10 +387,14 @@ h1, h2, h3, h4 {
 }
 .album-head .album-meta { color: var(--text-muted); }
 
+/* Title + buy button side by side, wrapping on narrow screens */
+.album-title-row {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+
 /* Bandcamp Buy / Download CTA shown in the album head */
 .album-buy {
   display: inline-flex; align-items: center; gap: 10px;
-  margin-top: 14px;
   background: var(--secondary); color: #fff;
   padding: 11px 22px; border-radius: 999px;
   font-family: var(--display); font-weight: 600;

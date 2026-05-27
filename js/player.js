@@ -81,9 +81,11 @@
     return '' +
       '<div class="album-head">' +
         '<p class="eyebrow">' + esc(album.eyebrow || ('Album ' + 1)) + '</p>' +
-        '<h2>' + esc(album.title) + '</h2>' +
+        '<div class="album-title-row">' +
+          '<h2>' + esc(album.title) + '</h2>' +
+          buyCta +
+        '</div>' +
         '<p class="album-meta">' + meta + '</p>' +
-        buyCta +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body" id="body-' + album.id + '">' +
