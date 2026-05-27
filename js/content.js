@@ -64,7 +64,7 @@ const CONTENT = {
       "Recorded and mixed by Kevin Zarnett\n" +
       "Drums recorded by Mark Kelso at Groovy Drums Studio\n" +
       "Additional recording by Noel Desautels & Paul Cusenza\n" +
-      "Mastered by brilliantfish @ TELEPHONE"
+      "Mastered by brilliantfish @ TELEPHONE\n" +
       "Physical Copy Pressed by Train Records in Canada"
   },
 
