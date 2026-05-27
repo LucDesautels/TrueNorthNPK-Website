@@ -93,7 +93,12 @@
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
       '<div class="album-body" id="body-' + album.id + '">' +
         '<div class="album-left">' +
-          '<div class="album-art"><img src="' + album.cover + '" alt="' + esc(album.title) + ' album cover"></div>' +
+          '<div class="album-art">' +
+            '<img class="cover-main" src="' + album.cover + '" alt="' + esc(album.title) + ' album cover">' +
+            (album.coverHover
+              ? '<img class="cover-hover" src="' + album.coverHover + '" alt="" aria-hidden="true">'
+              : '') +
+          '</div>' +
         '</div>' +
         '<div class="album-right">' +
           '<ul class="song-list">' + rows + '</ul>' +
@@ -147,14 +152,7 @@
         (album.year ? '<p class="album-meta">' + esc(album.year) + '</p>' : '') +
       '</div>' +
       '<div class="titanium-bar thin divider-ti" style="margin-bottom:26px"></div>' +
-      '<div class="album-body">' +
-        '<div class="album-left">' +
-          '<div class="wf-box wf-art">Album<br>Art</div>' +
-        '</div>' +
-        '<div class="album-right">' +
-          '<p class="wf-note">' + esc(album.description) + '</p>' +
-        '</div>' +
-      '</div>';
+      '<p class="wf-note">' + esc(album.description) + '</p>';
   }
 
   /* ---------- player bar wiring ---------- */

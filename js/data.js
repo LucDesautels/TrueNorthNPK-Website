@@ -19,7 +19,8 @@ const STREAMING = [
   { name: "Apple Music",   url: "#", icon: "apple" },
   { name: "YouTube Music", url: "#", icon: "youtube" },
   { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" },
-  { name: "Bandcamp",      url: "https://truenorthnpk.bandcamp.com/album/titanium-attitude", icon: "bandcamp" }
+  { name: "Bandcamp",      url: "https://truenorthnpk.bandcamp.com/album/titanium-attitude", icon: "bandcamp" },
+  { name: "Instagram",     url: "https://instagram.com/True_North_NPK", icon: "instagram" }
 ];
 
 /* ---- Band members ----
@@ -43,6 +44,7 @@ const ALBUMS = [
     year: "2026",
     status: "released",          // "released" or "upcoming"
     cover: "assets/img/album-titanium-attitude.jpg",
+    coverHover: "assets/img/cd.jpg",     /* shows on hover (real-life CD photo) */
     description: CONTENT.albums.titaniumAttitudeDescription,
     credits: CONTENT.albums.titaniumAttitudeCredits,
     songs: [

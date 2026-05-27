@@ -40,8 +40,7 @@ const CONTENT = {
 
     // [C] - Album two placeholder
     albumTwoDescription:
-      "True North NPK's second album is on the way. This space is a placeholder - " +
-      "when the record is ready, it will appear here automatically with its own player.",
+      "True North NPK's second album is on the way.",
 
     // [X] - Full liner-note credits shown below the Titanium Attitude
     //       song list on the Music page. Blank lines start new sections.

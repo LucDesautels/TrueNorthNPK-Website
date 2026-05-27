@@ -50,10 +50,12 @@
        straight from js/data.js so the band edits content in one place. */
     (function () {
       var first = ALBUMS[0];
+      var coverMain  = '<img class="cover-main" src="' + first.cover + '" alt="' + first.title + ' album cover">';
+      var coverHover = first.coverHover
+        ? '<img class="cover-hover" src="' + first.coverHover + '" alt="" aria-hidden="true">'
+        : '';
       document.getElementById("album-preview").innerHTML =
-        '<div class="album-cover-frame">' +
-          '<img src="' + first.cover + '" alt="' + first.title + ' album cover">' +
-        '</div>' +
+        '<div class="album-cover-frame">' + coverMain + coverHover + '</div>' +
         '<div class="album-preview-info">' +
           '<p class="eyebrow">Debut Album</p>' +
           '<h3>' + first.title + '</h3>' +
@@ -65,8 +67,7 @@
       var second = ALBUMS[1];
       if (second) {
         document.getElementById("coming-soon").innerHTML =
-          '<div class="cs-art">Album<br>Art</div>' +
-          '<div>' +
+          '<div class="coming-soon-text">' +
             '<h3>' + second.title + '</h3>' +
             '<p>' + second.description + '</p>' +
           '</div>';
