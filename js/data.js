@@ -15,7 +15,7 @@
    Links are placeholders ("#") until the band's profiles go live.
    HearNow is already live. Swap "#" for real URLs when ready.      */
 const STREAMING = [
-  { name: "Spotify",       url: "#", icon: "spotify" },
+  { name: "Spotify",       url: "https://open.spotify.com/artist/1y8ZOjqJCwAapF2hcmm4vJ", icon: "spotify" },
   { name: "Apple Music",   url: "#", icon: "apple" },
   { name: "YouTube Music", url: "#", icon: "youtube" },
   { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" },

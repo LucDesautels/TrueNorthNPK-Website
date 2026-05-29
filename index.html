@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>True North NPK</title>
   <meta name="description" content="True North NPK - a three-piece band. Debut album Titanium Attitude out now.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="assets/img/badge.png">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/controls.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/img-manifest.js"></script>
+  <script src="js/img.js"></script>
+  <script defer src="js/lenis.min.js"></script>
 </head>
 <body data-page="home">
 
@@ -50,7 +55,7 @@
        straight from js/data.js so the band edits content in one place. */
     (function () {
       var first = ALBUMS[0];
-      var coverMain  = '<img class="cover-main" src="' + first.cover + '" alt="' + first.title + ' album cover">';
+      var coverMain  = '<img class="cover-main lqip-img" src="' + first.cover + '" alt="' + first.title + ' album cover">';
       var coverHover = first.coverHover
         ? '<img class="cover-hover" src="' + first.coverHover + '" alt="" aria-hidden="true">'
         : '';

@@ -91,7 +91,7 @@
       '<div class="album-body" id="body-' + album.id + '">' +
         '<div class="album-left">' +
           '<div class="album-art">' +
-            '<img class="cover-main" src="' + album.cover + '" alt="' + esc(album.title) + ' album cover">' +
+            '<img class="cover-main lqip-img" data-eager src="' + album.cover + '" alt="' + esc(album.title) + ' album cover">' +
             (album.coverHover
               ? '<img class="cover-hover" src="' + album.coverHover + '" alt="" aria-hidden="true">'
               : '') +
@@ -403,4 +403,24 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   }
+
+  /* ---------- first-song warm-up ----------
+     On an idle, fast-enough connection, fetch just the metadata of the
+     first playable track through a detached element so the very first
+     play starts instantly. preload="metadata" means it never pulls the
+     whole file, and it never touches the player's own <audio>/UI. */
+  (function warmFirstSong() {
+    var first = queue[0];
+    if (!first || !first.song || typeof first.song.audio !== "string") return;
+    var c = navigator.connection || {};
+    if (c.saveData) return;
+    if (c.effectiveType && /2g$/.test(c.effectiveType)) return;
+    var run = function () {
+      var warm = new Audio();
+      warm.preload = "metadata";
+      warm.src = first.song.audio;
+    };
+    if ("requestIdleCallback" in window) requestIdleCallback(run, { timeout: 3000 });
+    else setTimeout(run, 1500);
+  })();
 })();

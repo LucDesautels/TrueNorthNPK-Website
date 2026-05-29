@@ -18,6 +18,22 @@ import sys
 class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
     """SimpleHTTPRequestHandler that honours the Range header."""
 
+    # How long each kind of file may be cached. Pages must revalidate so
+    # content edits show up immediately; static assets cache long enough
+    # that prefetch + repeat visits during a launch spike don't re-hit the
+    # server for the same bytes.
+    @staticmethod
+    def cache_control_for(path):
+        ext = os.path.splitext(path)[1].lower()
+        if ext in (".html", ".htm"):
+            return "public, max-age=0, must-revalidate"
+        if ext in (".woff", ".woff2", ".ttf", ".otf"):
+            return "public, max-age=2592000"          # fonts: 30 days
+        if ext in (".webp", ".jpg", ".jpeg", ".png", ".gif", ".svg", ".ico",
+                   ".css", ".js", ".mp3", ".m4a", ".ogg", ".wav", ".flac"):
+            return "public, max-age=86400"             # assets: 1 day
+        return "public, max-age=3600"
+
     def send_head(self):
         self._range = None
         path = self.translate_path(self.path)
@@ -31,6 +47,7 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         size = os.fstat(f.fileno()).st_size
         ctype = self.guess_type(path)
+        cache = self.cache_control_for(path)
         rng = self.headers.get("Range")
         self._range = None
 
@@ -49,6 +66,7 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
             self._range = (start, end)
             self.send_response(206)
             self.send_header("Content-Type", ctype)
+            self.send_header("Cache-Control", cache)
             self.send_header("Content-Range",
                              "bytes %d-%d/%d" % (start, end, size))
             self.send_header("Content-Length", str(end - start + 1))
@@ -59,6 +77,7 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         self.send_response(200)
         self.send_header("Content-Type", ctype)
+        self.send_header("Cache-Control", cache)
         self.send_header("Content-Length", str(size))
         self.send_header("Accept-Ranges", "bytes")
         self.end_headers()

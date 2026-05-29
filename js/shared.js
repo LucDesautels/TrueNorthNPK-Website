@@ -177,8 +177,80 @@ function applyContent() {
   }
 }
 
+/* =============================================================
+   Idle prefetch - once the current page is interactive, quietly
+   warm the browser cache so moving between tabs feels instant:
+     - every other page's HTML document (tiny), and
+     - every optimized image EXCEPT the photos-page gallery, which
+       stays lazy so a quick bounce never pulls the heaviest set.
+   Skipped on data-saver / 2g, prefers WebP, and runs in small
+   idle batches at the lowest priority so it never competes with
+   the page the visitor is actually looking at.
+   ============================================================= */
+function prefetchSite() {
+  var c = navigator.connection || {};
+  if (c.saveData) return;
+  if (c.effectiveType && /2g$/.test(c.effectiveType)) return;
+
+  var webp = (function () {
+    try {
+      return document.createElement("canvas")
+        .toDataURL("image/webp").indexOf("data:image/webp") === 0;
+    } catch (e) { return false; }
+  })();
+
+  var here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  var pages = ["index.html", "music.html", "lyrics.html", "photos.html", "about.html"];
+  var head = document.head, seen = {};
+
+  function hint(href, as) {
+    if (!href || seen[href]) return;
+    seen[href] = 1;
+    var l = document.createElement("link");
+    l.rel = "prefetch";
+    l.href = href;
+    if (as) l.as = as;
+    head.appendChild(l);
+  }
+
+  pages.forEach(function (p) { if (p !== here) hint(p, "document"); });
+
+  var imgs = [];
+  if (window.IMG_MANIFEST) {
+    Object.keys(IMG_MANIFEST).forEach(function (key) {
+      if (key.indexOf("assets/img/photos/") === 0) return;   /* keep gallery lazy */
+      var entry = IMG_MANIFEST[key];
+      imgs.push((webp && entry && entry.webp) ? entry.webp : key);
+    });
+  }
+
+  var i = 0;
+  (function pump() {
+    for (var n = 0; i < imgs.length && n < 4; n++) hint(imgs[i++], "image");
+    if (i < imgs.length) {
+      if ("requestIdleCallback" in window) requestIdleCallback(pump, { timeout: 2000 });
+      else setTimeout(pump, 250);
+    }
+  })();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById("site-header")) buildHeader();
   if (document.getElementById("site-footer")) buildFooter();
   applyContent();
+
+  if ("requestIdleCallback" in window) requestIdleCallback(prefetchSite, { timeout: 4000 });
+  else setTimeout(prefetchSite, 2000);
+
+  if (typeof Lenis !== "undefined") {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+    });
+    function lenisRaf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(lenisRaf);
+    }
+    requestAnimationFrame(lenisRaf);
+  }
 });

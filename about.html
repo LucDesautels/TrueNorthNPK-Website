@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About &amp; Contact - True North NPK</title>
   <meta name="description" content="Meet True North NPK - Noel, Paul and Kevin - and get in touch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="assets/img/badge.png">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/controls.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/img-manifest.js"></script>
+  <script src="js/img.js"></script>
+  <script defer src="js/lenis.min.js"></script>
 </head>
 <body data-page="about">
 
@@ -21,7 +26,7 @@
         <h1>About the Band</h1>
         <div class="band-block">
           <div class="band-photo">
-            <img src="assets/img/band-placeholder.jpg" alt="True North NPK band photo placeholder">
+            <img class="lqip-img" data-eager src="assets/img/band-placeholder.jpg" alt="True North NPK band photo placeholder">
 
           </div>
           <div class="band-text">
@@ -113,8 +118,8 @@
         return '' +
           '<article class="member-card">' +
             '<div class="member-photo">' +
-              '<img class="photo-main" src="' + m.photo + '" alt="' + m.name + '">' +
-              '<img class="photo-hover" src="' + m.photoHover + '" alt="" aria-hidden="true">' +
+              '<img class="photo-main lqip-img" loading="lazy" decoding="async" src="' + m.photo + '" alt="' + m.name + '">' +
+              '<img class="photo-hover" loading="lazy" decoding="async" src="' + m.photoHover + '" alt="" aria-hidden="true">' +
             '</div>' +
             '<div class="member-info">' +
               '<h3>' + m.name + '</h3>' +

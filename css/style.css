@@ -295,6 +295,18 @@ h1, h2, h3, h4 {
   padding: 60px clamp(16px, 4vw, 40px);
   background: linear-gradient(180deg, rgba(20,23,26,.55), rgba(20,23,26,.92)),
               url('../assets/img/band-placeholder.jpg') center/cover no-repeat;
+  background-color: #14171a;   /* instant paint while the hero image streams in */
+}
+@supports (background-image: image-set(url('x.webp') type('image/webp'))) {
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(20,23,26,.55), rgba(20,23,26,.92)),
+      image-set(
+        url('../assets/img/band-placeholder.webp') type('image/webp'),
+        url('../assets/img/band-placeholder.jpg') type('image/jpeg')
+      ) center/cover no-repeat;
+    background-color: #14171a;
+  }
 }
 .hero-inner { width: min(1180px, 92vw); margin: 0 auto; max-width: 760px; }
 .hero h1 {
@@ -754,6 +766,17 @@ body[data-page="lyrics"] {
     url('../assets/img/raven.jpg') center center / cover fixed no-repeat;
   background-color: #0c0d10;
 }
+@supports (background-image: image-set(url('x.webp') type('image/webp'))) {
+  body[data-page="lyrics"] {
+    background:
+      linear-gradient(rgba(8, 9, 11, .35), rgba(8, 9, 11, .55)),
+      image-set(
+        url('../assets/img/raven.webp') type('image/webp'),
+        url('../assets/img/raven.jpg') type('image/jpeg')
+      ) center center / cover fixed no-repeat;
+    background-color: #0c0d10;
+  }
+}
 body[data-page="lyrics"] #site-header { background: transparent; }
 body[data-page="lyrics"] .navbar { background: rgba(8, 9, 11, 0.6); }
 body[data-page="lyrics"] .lyrics-layout {
@@ -1179,4 +1202,26 @@ body[data-page="music"] .site-controls { bottom: 92px; }
   .footer-inner { grid-template-columns: 1fr; }
   .form-row { flex-direction: column; }
   .section { padding: 60px 0; }
+}
+
+/* =============================================================
+   PROGRESSIVE IMAGE LOADING (blur-up)
+   Driven by js/img.js + js/img-manifest.js. The frame shows a tiny
+   blurred placeholder instantly; the sharp image fades in on top once
+   it has decoded. Images are only hidden while the enhancer is live
+   (html.tn-img), so the site degrades gracefully without JavaScript.
+   ============================================================= */
+.tn-frame {
+  background-image: var(--tn-lqip);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--surface);
+}
+img.lqip-img { transition: opacity .55s ease; }
+html.tn-img img.lqip-img { opacity: 0; }
+html.tn-img img.lqip-img.tn-loaded { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  img.lqip-img { transition: none; }
 }

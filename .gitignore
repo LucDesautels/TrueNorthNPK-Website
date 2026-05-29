@@ -2,6 +2,11 @@
 Uploaded Songs/
 Uploaded Media from the band/
 
+# Pristine, full-size image snapshots taken by tools/optimize_images.py.
+# The committed images are the optimized versions; true originals live here
+# locally (and in git history) so the optimizer can always re-run cleanly.
+assets/img/_originals/
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
