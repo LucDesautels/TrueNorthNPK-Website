@@ -25,13 +25,18 @@ class RangeRequestHandler(http.server.SimpleHTTPRequestHandler):
     @staticmethod
     def cache_control_for(path):
         ext = os.path.splitext(path)[1].lower()
+        # Pages + code change most often (content tweaks, launch hotfixes) so
+        # they revalidate quickly; heavy, stable media caches hard so a launch
+        # spike or repeat visit never re-downloads it.
         if ext in (".html", ".htm"):
-            return "public, max-age=0, must-revalidate"
+            return "public, max-age=60"               # pages: instant nav, fresh in 1 min
+        if ext in (".css", ".js"):
+            return "public, max-age=300"              # styles/scripts: fresh in 5 min
         if ext in (".woff", ".woff2", ".ttf", ".otf"):
             return "public, max-age=2592000"          # fonts: 30 days
         if ext in (".webp", ".jpg", ".jpeg", ".png", ".gif", ".svg", ".ico",
-                   ".css", ".js", ".mp3", ".m4a", ".ogg", ".wav", ".flac"):
-            return "public, max-age=86400"             # assets: 1 day
+                   ".mp3", ".m4a", ".ogg", ".wav", ".flac"):
+            return "public, max-age=86400"            # images/audio: 1 day
         return "public, max-age=3600"
 
     def send_head(self):

@@ -15,11 +15,14 @@
    Links are placeholders ("#") until the band's profiles go live.
    HearNow is already live. Swap "#" for real URLs when ready.      */
 const STREAMING = [
-  { name: "Spotify",       url: "https://open.spotify.com/artist/1y8ZOjqJCwAapF2hcmm4vJ", icon: "spotify" },
-  { name: "Apple Music",   url: "#", icon: "apple" },
-  { name: "YouTube Music", url: "#", icon: "youtube" },
-  { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" },
+  { name: "Spotify",       url: "https://open.spotify.com/album/50EgM40rSAnMMKJBqyodOy", icon: "spotify" },
+  { name: "Apple Music",   url: "https://music.apple.com/us/album/titanium-attitude/6768452486", icon: "apple" },
+  { name: "YouTube Music", url: "https://music.youtube.com/playlist?list=OLAK5uy_mI3TyWW7iD_srs57dpWNushqkcMeKgsuE", icon: "youtube" },
+  { name: "Amazon Music",  url: "https://music.amazon.com/albums/B0H1F66K93", icon: "amazon" },
+  { name: "Pandora",       url: "https://www.pandora.com/artist/true-north-npk/titanium-attitude/ALdKmjcjl7b942q", icon: "pandora" },
+  { name: "Deezer",        url: "https://www.deezer.com/en/album/980648631", icon: "deezer" },
   { name: "Bandcamp",      url: "https://truenorthnpk.bandcamp.com/album/titanium-attitude", icon: "bandcamp" },
+  { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" },
   { name: "Instagram",     url: "https://instagram.com/True_North_NPK", icon: "instagram" }
 ];
 
