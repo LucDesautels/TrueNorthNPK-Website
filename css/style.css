@@ -294,7 +294,7 @@ h1, h2, h3, h4 {
   display: flex; align-items: center;
   padding: 60px clamp(16px, 4vw, 40px);
   background: linear-gradient(180deg, rgba(20,23,26,.55), rgba(20,23,26,.92)),
-              url('../assets/img/band-placeholder.jpg') center/cover no-repeat;
+              url('../assets/img/photos/Home Page Background.jpg') center/cover no-repeat;
   background-color: #14171a;   /* instant paint while the hero image streams in */
 }
 @supports (background-image: image-set(url('x.webp') type('image/webp'))) {
@@ -302,8 +302,8 @@ h1, h2, h3, h4 {
     background:
       linear-gradient(180deg, rgba(20,23,26,.55), rgba(20,23,26,.92)),
       image-set(
-        url('../assets/img/band-placeholder.webp') type('image/webp'),
-        url('../assets/img/band-placeholder.jpg') type('image/jpeg')
+        url('../assets/img/photos/Home Page Background.webp') type('image/webp'),
+        url('../assets/img/photos/Home Page Background.jpg') type('image/jpeg')
       ) center/cover no-repeat;
     background-color: #14171a;
   }
