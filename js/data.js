@@ -11,6 +11,13 @@
    - `meaning` is the paragraph shown on the Lyrics page. Edit freely.
    ============================================================= */
 
+/* ---- Show / hide Instagram across the whole site --------------------
+   The Instagram links appear in the nav bar, the footer, and the
+   Contact section. Set this to false to hide them everywhere; set it
+   back to true to show them again. The links stay in the code either
+   way - false only hides them from view.                              */
+const SHOW_INSTAGRAM = false;
+
 /* ---- Streaming platforms (nav bar links) ----
    Links are placeholders ("#") until the band's profiles go live.
    HearNow is already live. Swap "#" for real URLs when ready.      */
