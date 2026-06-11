@@ -127,7 +127,7 @@ const CONTENT = {
     email:     "contact@truenorthnpk.com",
     listenUrl: "https://truenorthnpk.hearnow.com/",
     bandcamp:  "https://truenorthnpk.bandcamp.com/album/titanium-attitude",
-    instagram: "True_North_NPK"            /* handle only, no @ */
+    instagram: "true_north_npk_band"            /* handle only, no @ */
   },
 
   /* ------------------------------------------------------------
