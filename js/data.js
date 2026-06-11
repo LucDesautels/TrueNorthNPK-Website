@@ -16,7 +16,7 @@
    Contact section. Set this to false to hide them everywhere; set it
    back to true to show them again. The links stay in the code either
    way - false only hides them from view.                              */
-const SHOW_INSTAGRAM = false;
+const SHOW_INSTAGRAM = true;
 
 /* ---- Streaming platforms (nav bar links) ----
    Links are placeholders ("#") until the band's profiles go live.
@@ -30,7 +30,7 @@ const STREAMING = [
   { name: "Deezer",        url: "https://www.deezer.com/en/album/980648631", icon: "deezer" },
   { name: "Bandcamp",      url: "https://truenorthnpk.bandcamp.com/album/titanium-attitude", icon: "bandcamp" },
   { name: "HearNow",       url: "https://truenorthnpk.hearnow.com/", icon: "hearnow" },
-  { name: "Instagram",     url: "https://instagram.com/True_North_NPK", icon: "instagram" }
+  { name: "Instagram",     url: "https://instagram.com/true_north_npk_band", icon: "instagram" }
 ];
 
 /* ---- Band members ----
