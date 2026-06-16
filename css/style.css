@@ -1001,13 +1001,14 @@ body[data-page="lyrics"] .lyrics-layout {
   padding: 1px 6px; border-radius: 4px; font-size: .9em;
 }
 .photos-grid {
-  column-count: 3;
-  column-gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: start;
 }
 .photo-item {
   display: block;
-  margin: 0 0 18px;
-  break-inside: avoid;
+  margin: 0;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -1195,11 +1196,11 @@ body[data-page="music"] .site-controls { bottom: 92px; }
   .modal-col-meaning { border-left: 0; border-top: 1px solid var(--border); }
   body[data-page="music"] .site-controls { bottom: 156px; }
 
-  .photos-grid { column-count: 2; }
+  .photos-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 520px) {
-  .photos-grid { column-count: 1; }
+  .photos-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
