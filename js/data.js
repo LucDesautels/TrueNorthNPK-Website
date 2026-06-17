@@ -175,6 +175,7 @@ Showing the deep love of a mother
 They don't expect me to ever win
 They don't believe I have the right stuff
 But I know who I've always been
+
 I am the Underdog, I am the Underdog
 I am the Underdog, bold, strong and tough
 
@@ -191,6 +192,7 @@ Making it a reality is fun
 They don't expect me to ever win
 They don't believe I have the right stuff
 But I know who I've always been
+
 I am the Underdog, I am the Underdog
 I am the Underdog, bold, strong and tough
 
@@ -207,16 +209,18 @@ Sometimes a duckling is really a swan
 They don't expect me to ever win
 They don't believe I have the right stuff
 But I know who I've always been
+
 I am the Underdog, I am the Underdog
 I am the Underdog, bold, strong and tough
 
 Two times, might be luck
 Five times, not so much
+
 Rarely acknowledged or even seen
 Working away like a smart machine
-
 Emerging to shocking victory
 Creating beacons for history
+
 Rocky rising the Philly art steps
 The Karate Kid doing his reps
 Eminem making it on 8 mile
@@ -274,7 +278,6 @@ No matter where you are, send a smile
 Your soulful eyes travel in style
 It's not complicated, but so worthwhile
 To send a smile
-
 Send a smile
 Send a smile`,
       },
@@ -312,7 +315,6 @@ Titanium Attitude, Titanium Attitude
 
 Titanium Attitude
 Titanium Attitude
-
 Dress rehearsal's over; helmets on
 Can't get me down 'cause the rising of the sun
 
@@ -325,12 +327,10 @@ Got time to live, got time to give
 Living with much gratitude
 Got time to live, got time to give
 Titanium Attitude
-
 Got love to live, got love to give
 Living with much gratitude
 Got love to live, got love to give
 Titanium Attitude
-
 Shiny chrome heart attitude
 Titanium Attitude`,
       },
@@ -383,7 +383,6 @@ At least I didn't die in '22
 Hey there Mister Reaper, how are you?
 At least I didn't die in '22
 I'm still here but my time is overdue
-
 At least I didn't die in '22
 Hey there Mister Reaper, have you got me any news?
 At least I didn't die in '22
@@ -425,7 +424,6 @@ But I ain't doin' what I should
 (ain't doin') ain't doin' what I should
 (Ain't doin') ain't doin', (ain't doin') ain't doin',
 (ain't doin') ain't doin' what I should
-
 Forget the flies on a garbage dump
 I look busy but I'm up to no good
 
@@ -438,7 +436,6 @@ I'm busy, busy like the rain in a storm
 Busy like a bee in a swarm
 Busy, seems I'm doin' all that I could
 But I ain't doin' what I should
-
 Ain't doin' what I should
 Aaaaain't doin' what I should`,
       },
@@ -453,7 +450,6 @@ Aaaaain't doin' what I should`,
 It was time for a little shift
 He'd gone from nothing to stuffed garages
 Some drama, some baggage, some shit
-
 So he downsized to a few guitars
 Dropped a few folks along the way
 Lost a couple he'd rather have not
@@ -470,7 +466,6 @@ So he gathers his dozen reprobates
 To a beach where they've never been
 Where they all lose some crap that's a-weighing-em down
 Through scotch, or song, or Zen
-
 There's sun and stars and sails and tales
 And cookin' and breeze and dark seas
 Then as the camera zooms out
@@ -493,7 +488,6 @@ So his future's full of sailing
 Collecting countries like ball-card sets
 Got a couple of places on Anna Maria
 No cars; three pools; no pets
-
 And he's running on sand in the morning
 And he's singing guitar at night
 Ain't so bad just to have in a suitcase
@@ -521,11 +515,12 @@ What can you count on?
 Cannot count on Cronkite, not since '81
 What goes around never comes around for some
 Allies don't come through, well that's just the ugly truth
+
 Clouds have no silver linings, and the ends have overtaken the means
 Patience is not a virtue sight unseen
 You go through the pain, but you never attain the gain
-As unlikely as it seems
 
+As unlikely as it seems
 (What can you count on?)
 Odd as this may be
 (What can you count on?)
@@ -535,8 +530,8 @@ Breathe deep - and count on me
 Not reaping what you're sowing and time's not healing wounds
 When one door closes you've been locked into the room
 When it comes to taxes and death, you can only delay at best
-As unlikely as it seems
 
+As unlikely as it seems
 (What can you count on?)
 Odd as this may be
 (What can you count on?)
@@ -551,17 +546,16 @@ I'll be your one, two, three
 Practice does not make perfect and this too shall not pass
 Everything happens for no good reason, you just get a pain in the ass
 Stopping at the starting gate, good things don't come to those who wait
+
 As unlikely as it seems
 Odd as this may be
 There's one thing you can count on -
-
 As unlikely as it seems
 (What can you count on?)
 Odd as this may be
 (What can you count on?)
 One thing you can count on
 Breathe deep - and count on me
-
 Close your eyes baby and count on
 Breathe deep and count on me
 Count on me (repeated)`,
