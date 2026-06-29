@@ -632,7 +632,6 @@ Beware the broken beast
 He offers fleshy fruits
 But I beg you, do not eat
 When the Krampus comes to Campus
-
 Beware the devil's priest
 Avoid his fetid feast
 He could not care the least

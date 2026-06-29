@@ -1000,15 +1000,16 @@ body[data-page="lyrics"] .lyrics-layout {
   background: var(--surface-2); border: 1px solid var(--border);
   padding: 1px 6px; border-radius: 4px; font-size: .9em;
 }
+/* Fallback (no JS): column masonry — packs tightly with no vertical
+   dead space, but fills top-to-bottom per column. */
 .photos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  align-items: start;
+  column-count: 3;
+  column-gap: 18px;
 }
 .photo-item {
   display: block;
-  margin: 0;
+  margin: 0 0 18px;
+  break-inside: avoid;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -1016,6 +1017,23 @@ body[data-page="lyrics"] .lyrics-layout {
   box-shadow: 0 6px 18px rgba(0,0,0,.18);
   transition: transform .2s ease, border-color .2s ease;
 }
+/* JS-enhanced (js/photos-gallery.js): images are distributed across
+   flex columns so they read left-to-right across the top row, while
+   each column still packs tightly with no vertical dead space. */
+.photos-grid.photos-grid--cols {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  column-count: initial;
+}
+.photos-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.photos-grid--cols .photo-item { margin: 0; }
 .photo-item:hover {
   transform: translateY(-3px);
   border-color: var(--accent);
@@ -1196,11 +1214,11 @@ body[data-page="music"] .site-controls { bottom: 92px; }
   .modal-col-meaning { border-left: 0; border-top: 1px solid var(--border); }
   body[data-page="music"] .site-controls { bottom: 156px; }
 
-  .photos-grid { grid-template-columns: repeat(2, 1fr); }
+  .photos-grid { column-count: 2; }
 }
 
 @media (max-width: 520px) {
-  .photos-grid { grid-template-columns: 1fr; }
+  .photos-grid { column-count: 1; }
 }
 
 @media (max-width: 520px) {
