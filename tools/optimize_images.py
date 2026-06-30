@@ -86,6 +86,13 @@ for p in sorted(glob.glob(os.path.join(IMG_DIR, "photos", "*.*"))):
         TARGETS.append({"path": rel, "mode": "contain", "size": 1000, "q": 72,
                         "png_palette": True})
 
+# Second-batch gallery photos (see_more folder) — same optimisation rule.
+for p in sorted(glob.glob(os.path.join(IMG_DIR, "see_more", "*.*"))):
+    if p.lower().endswith((".jpg", ".jpeg", ".png")):
+        rel = os.path.relpath(p, ROOT).replace(os.sep, "/")
+        TARGETS.append({"path": rel, "mode": "contain", "size": 1000, "q": 72,
+                        "png_palette": True})
+
 LQIP_MAX = 26   # px, longest side of the blurred placeholder
 
 
@@ -209,14 +216,15 @@ def main():
     # their .webp was generated above and is referenced from that entry.
     existing_webps = {e["webp"] for e in manifest.values()}
     extra = 0
-    for p in sorted(glob.glob(os.path.join(IMG_DIR, "photos", "*.webp"))):
-        rel = os.path.relpath(p, ROOT).replace(os.sep, "/")
-        if rel in manifest or rel in existing_webps:
-            continue
-        im = Image.open(p)
-        manifest[rel] = {"w": im.size[0], "h": im.size[1], "webp": rel,
-                         "lqip": make_lqip(Image.open(p))}
-        extra += 1
+    for folder in ("photos", "see_more"):
+        for p in sorted(glob.glob(os.path.join(IMG_DIR, folder, "*.webp"))):
+            rel = os.path.relpath(p, ROOT).replace(os.sep, "/")
+            if rel in manifest or rel in existing_webps:
+                continue
+            im = Image.open(p)
+            manifest[rel] = {"w": im.size[0], "h": im.size[1], "webp": rel,
+                             "lqip": make_lqip(Image.open(p))}
+            extra += 1
     if extra:
         print("Registered %d WebP-only gallery photo(s) (dimensions + LQIP)." % extra)
 

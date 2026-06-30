@@ -1041,6 +1041,26 @@ body[data-page="lyrics"] .lyrics-layout {
 .photo-item img {
   width: 100%; height: auto; display: block;
 }
+/* "See more" button row */
+.photos-see-more {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+.photos-see-more-icon {
+  transition: transform .25s ease;
+}
+.photos-see-more-btn:hover .photos-see-more-icon {
+  transform: translateY(3px);
+}
+/* Fade-in animation for newly revealed photos */
+@keyframes tn-reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.photo-item--revealing {
+  animation: tn-reveal .35s ease forwards;
+}
 
 /* =============================================================
    THEME TOGGLE + WEBSITE CONTROLS PANEL
