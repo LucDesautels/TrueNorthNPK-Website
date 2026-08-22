@@ -72,18 +72,94 @@ const CONTENT = {
      ABOUT PAGE
      ------------------------------------------------------------ */
   about: {
-    // [G] - Band description, paragraph 1
-    paragraph1:
-      "True North NPK is a rock band comprised of Noel Desautels, Paul Cusenza and " +
-      "Kevin Zarnett. The \"NPK\" is simply the three of them: friends who write " +
-      "and record songs together with a little help from their friends.",
-
-    // [H] - Band description, paragraph 2
-    paragraph2:
-      "Their music leans on folk and rock roots, with lyrics about resilience, " +
-      "gratitude, family and finding the sun-lit route through hard times. Their debut " +
-      "album, Titanium Attitude, was produced by the band, with artwork in the style of " +
-      "Canadian West Coast art.",
+    // [G] - Official band biography, rendered as headings + paragraphs
+    bio: [
+      { type: "p", text:
+        "True North NPK isn't just a band — it's a story of three lives that converged " +
+        "across decades, continents, and careers, ultimately forming a sound shaped by " +
+        "resilience, gratitude, and the kind of hard-earned wisdom that only comes from " +
+        "living deeply." },
+      { type: "p", text:
+        "The trio — Noel Desautels, Paul Cusenza, and Kevin Zarnett — bring together " +
+        "more than 150 years of combined life experience. Between them, they've survived " +
+        "cancer, supported spouses through their own battles, navigated divorce, celebrated " +
+        "forty-year marriages, raised children and grandchildren, and mourned the people " +
+        "they've loved. Their music carries all of it: the scars, the hope, the humor, the " +
+        "grit, and the unmistakable sense that life is still worth singing about." },
+      { type: "p", text:
+        "Their origin story is as unexpected as it is compelling. Noel and Paul first met " +
+        "while attending Harvard, forming a friendship that would quietly simmer for years. " +
+        "Noel and Kevin connected later as business colleagues, discovering a shared " +
+        "creative pulse that eventually pulled all three men into the same orbit. What began " +
+        "as friends writing songs together became True North NPK — a name built from " +
+        "their initials, but also a nod to the compass point that guides their music: " +
+        "honesty, heart, and the courage to keep moving forward." },
+      { type: "p", text:
+        "Their debut album, Titanium Attitude (May 2026), produced entirely by the band, " +
+        "blends rock, folk, country, and blues — often drawing comparisons to Tom Petty " +
+        "for its warm Americana spirit and storytelling depth. The band's message is simple " +
+        "but powerful: meet life's challenges by being bold, kind, and strong. In their " +
+        "words, have a Titanium Attitude." },
+      { type: "h3", text: "The Creative Chemistry Behind the Music" },
+      { type: "p", text:
+        "Every song is co-written by all three members — a collaborative process that " +
+        "defines the band's identity. Kevin, a multi-instrumentalist, shapes much of the " +
+        "musical landscape. His guitar, bass, harmonica, keys, and production instincts form " +
+        "the backbone of their sound, with Noel adding guitar and banjo textures that deepen " +
+        "the band's folk-rock roots. Vocally, Kevin leads seven tracks, Noel leads two, and " +
+        "Paul leads one, with Noel and Paul layering harmonies and accents that give each " +
+        "song its emotional lift." },
+      { type: "p", text:
+        "Their signature track, “Titanium Attitude,” captures the band's identity " +
+        "more than any other. It's the anthem that defines their message — resilience, " +
+        "courage, and the belief that people can choose strength even in the hardest " +
+        "moments. Songs like “Underdog,” “Send a Smile,” and “McLean " +
+        "Refugees” have already resonated strongly with listeners, but “Titanium " +
+        "Attitude” remains the heart of who they are." },
+      { type: "p", text:
+        "If True North NPK has a visual or emotional vibe, it's grounded in nature, warmth, " +
+        "and authenticity. Their sound sits comfortably in Heartland Rock, woven with Folk, " +
+        "Blues, and Country — music that feels lived-in, supportive, and honest." },
+      { type: "p", text:
+        "Their hope is simple: that someone hearing them for the first time feels " +
+        "emotionally moved. That the lyrics spark reflection. That the music nudges " +
+        "listeners toward better choices, deeper gratitude, and a clearer sense of what " +
+        "matters." },
+      { type: "h3", text: "A Band Built Across Distances" },
+      { type: "p", text:
+        "One of the most surprising elements of their process is how the band creates " +
+        "together while living in different locations. Ideas travel across cities and " +
+        "states, and Kevin brings it all home — mixing and mastering the recordings " +
+        "into cohesive, fully realized songs." },
+      { type: "p", text:
+        "Noel's role sits at the emotional center of the band's creative chemistry. His " +
+        "instinct for melody, his ability to add warmth through guitar and banjo, and his " +
+        "vocal presence give the songs their human pulse. Noel's contributions often shape " +
+        "the tone of a track — grounding the music in authenticity and giving it the " +
+        "lived-in quality that defines True North NPK's sound." },
+      { type: "p", text:
+        "For Paul, creativity is shaped by a life lived widely and deeply. Though known for " +
+        "a successful business career — including being one of the co-founders of " +
+        "23andMe — art and music have always been his true passion. He has seen over " +
+        "400 musical acts live, from artists representing every letter of the alphabet, and " +
+        "his experiences as a grandfather, a cancer survivor, and a traveler who has " +
+        "explored all 50 U.S. states, six Canadian provinces, 39 countries, and 31 national " +
+        "parks all feed into his perspective as a songwriter. His love for people, places, " +
+        "and stories is woven into every lyric he touches." },
+      { type: "p", text:
+        "Paul jokes, “We just did a band DNA test and we're 100% titanium!” — " +
+        "a line that captures the band's spirit perfectly: grounded, humorous, and " +
+        "unshakably optimistic." },
+      { type: "h3", text: "Three Artists, One Voice" },
+      { type: "p", text:
+        "Together, Kevin, Noel, and Paul form a band of multitalented individuals whose " +
+        "combined skills, experiences, and perspectives create a sound that is both deeply " +
+        "personal and universally resonant. Their story is real. Their bond is deep. Their " +
+        "music is timeless." },
+      { type: "p", text:
+        "True North NPK is entering a new creative chapter — with two more albums " +
+        "already in development — and their voice is one the world is ready to hear." }
+    ],
 
     // [Y] - Small credit shown at the very bottom of the About page
     siteCredit: "Website created and maintained by Luc Desautels."

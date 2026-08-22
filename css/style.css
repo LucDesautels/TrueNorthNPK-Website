@@ -895,11 +895,12 @@ body[data-page="lyrics"] .lyrics-layout {
 .about-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); text-transform: uppercase; }
 
 .band-block {
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px;
-  align-items: center; margin: 34px 0 20px;
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: 40px;
+  align-items: start; margin: 34px 0 20px;
 }
 .band-photo {
   border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+  position: sticky; top: 90px;
 }
 .band-photo img { width: 100%; height: auto; }
 .band-photo .ph-caption {
@@ -908,6 +909,11 @@ body[data-page="lyrics"] .lyrics-layout {
   border-top: 1px solid var(--border);
 }
 .band-block p { color: var(--text); margin-bottom: 14px; }
+.band-block h3 {
+  font-size: 1.15rem; text-transform: uppercase; letter-spacing: .03em;
+  margin: 30px 0 12px;
+}
+.band-block h3:first-child { margin-top: 0; }
 
 /* member cards */
 .members-grid {
@@ -1219,6 +1225,7 @@ body[data-page="music"] .site-controls { bottom: 92px; }
   }
 
   .band-block { grid-template-columns: 1fr; }
+  .band-photo { position: static; }
   .members-grid { grid-template-columns: 1fr; max-width: 380px; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }

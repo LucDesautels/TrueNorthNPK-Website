@@ -187,6 +187,14 @@ function applyContent() {
     });
   }
 
+  var bioEl = document.querySelector("[data-content-bio]");
+  if (bioEl && CONTENT.about && Array.isArray(CONTENT.about.bio)) {
+    bioEl.innerHTML = CONTENT.about.bio.map(function (block) {
+      var tag = (block.type === "h3") ? "h3" : "p";
+      return "<" + tag + ">" + escapeHtml(block.text || "") + "</" + tag + ">";
+    }).join("");
+  }
+
   var memberList = document.querySelector("[data-content-member-list]");
   if (memberList && Array.isArray(CONTENT.members)) {
     memberList.innerHTML = CONTENT.members.map(function (m) {
